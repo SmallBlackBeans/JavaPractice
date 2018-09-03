@@ -1,20 +1,28 @@
 package com.hanxiaocu.io;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 /**
- * Description:
+ * Description: IO 流
  * User: hanchenghai
  * Date: 2018/09/03 下午5:57
  */
+
+
+
+/*
+* io 流 分为字节流和字符流
+*
+* */
 public class io {
 
     public static void main(String[] args) {
 
     }
 
+    /**
+     * 控制台输入
+     */
     private static class BBRead {
         public static void main(String[] args) throws IOException {
 //            readChar();
@@ -36,9 +44,36 @@ public class io {
             System.out.println("Enter lines of test.");
             System.out.println("Enter 'end' to quit");
             do {
-                str = br.readLine();
+                str = br.readLine();//每次读取一个字符串
                 System.out.println(str);
             }while (!str.equals("end"));
         }
+    }
+    /**
+     * 控制台输出
+     */
+    private static class BBWrite {
+        public static void main(String[] args) {
+            int b;
+            b = 'A';
+            System.out.write(b);
+            System.out.write('\n');
+        }
+    }
+
+
+    //字节流
+    private static class fileInputStreamDemo {
+        public static void main(String[] args) throws FileNotFoundException {
+            InputStream fs = new FileInputStream("/usr/hanchenghai/desktop/test.txt");
+
+
+            File f = new File("xxxx");
+            InputStream is = new FileInputStream(f);
+
+
+            
+        }
+
     }
 }
