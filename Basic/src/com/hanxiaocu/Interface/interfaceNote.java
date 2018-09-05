@@ -7,4 +7,7 @@ package com.hanxiaocu.Interface;
  */
 public class interfaceNote {
     //标记接口 一个没有任何方法的接口，用来做一个规范约束，或者实现一个多态的引用，把一个类变成一个接口类型
+    public static void main(String[] args) {
+
+    }
 }
