@@ -17,7 +17,6 @@ public class CallableNote {
         public static void main(String[] args) {
             CallableThreadDemo ctt = new CallableThreadDemo();
             FutureTask<Integer> task = new FutureTask<>(ctt);
-            Array
             for (int i = 0; i < 100; i++) {
                 System.out.println("当前线程 " + Thread.currentThread().getName());
                 if (i == 20) {

@@ -1,6 +1,6 @@
 package com.hanxiaocu.Socket;
 
-import javax.mail.Message;
+//import javax.mail.Message;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
