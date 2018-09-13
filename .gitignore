@@ -3,6 +3,9 @@
 ### Example user template
 
 # IntelliJ project files
+Basic/.idea
+**/.idea/
+**/.idea
 */.idea
 .idea
 */*.iml
