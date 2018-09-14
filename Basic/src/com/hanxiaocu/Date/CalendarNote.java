@@ -15,7 +15,7 @@ public class CalendarNote {
         Date current = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(current);
-        calendar.add(Calendar.DAY_OF_MONTH,1);//到今天晚上00：00：00
+        calendar.add(Calendar.DAY_OF_MONTH,1);//到今天晚上 即明天00：00：00
         calendar.set(Calendar.HOUR,0);
         calendar.set(Calendar.MINUTE,0);
         calendar.set(Calendar.SECOND,0);
