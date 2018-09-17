@@ -47,7 +47,6 @@ class Apple implements Runnable {
 
     }
 }
-}
 
 //Lock 同步锁
 public class LockNote {
