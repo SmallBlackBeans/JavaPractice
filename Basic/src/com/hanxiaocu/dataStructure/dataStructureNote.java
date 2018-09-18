@@ -96,7 +96,6 @@ public class dataStructureNote {
             while (itr.hasNext()) {
                 str = (String) itr.next();
             }
-
             str = capitals.getProperty("xx","not found");
         }
 

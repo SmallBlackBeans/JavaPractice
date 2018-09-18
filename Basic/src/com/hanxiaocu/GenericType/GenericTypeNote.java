@@ -9,6 +9,11 @@ import java.util.List;
  * User: hanchenghai
  * Date: 2018/09/05 下午5:26
  */
+
+
+/**
+ * 泛型还是语法糖，反编译后可以看到还是进行了强转
+ */
 public class GenericTypeNote {
     public static class GenericTypeMethodTester1 {
         public static <E> void printArr(E[] inputArr) {
@@ -86,10 +91,11 @@ public class GenericTypeNote {
         }
 
         //泛型上限为Number
-        //通配符下限通过形如 List<? super Number>
+        //通配符下限通过形如 List<? super Number> 必须是Number类或者它的父类
         public static void getNumber(List<? extends Number> data) {
             System.out.println("data: " + data.get(0));
         }
+
     }
 
     public static void main(String[] args) {
