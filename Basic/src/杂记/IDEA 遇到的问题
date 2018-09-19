@@ -15,3 +15,10 @@ git rm --cached *.iml
 git add .gitignore
 git commit -m "gitignore提交删除iml"
 git push origin master
+
+
+
+3.
+idea 不能new package
+对src目录右键，make directory as ->sources root
+
