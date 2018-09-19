@@ -255,3 +255,25 @@ TreeSet -----> TreeMap
 堆污染：
 当一个方法即使用泛型又使用可变参数的时候，就容易造成堆污染
 如 ArrayList.asList方法   public static <T> List<T> asList(T...a)
+
+
+
+字节码：
+ASCII:一个字节
+ANSI(GB2312):两个字节 GBK家族
+UTF-8：3个字节
+UTF-8 BOM: 微软搞得一套，初始三个字节 + 字符总字节，所以比UTF-8总体大三字节
+
+编/解码中需要注意汉字要使用UTF-8
+string -> byte[] 编码 客户端提交
+byte[] -> stirng 解码 服务端解析
+
+
+转换流：
+字节->字符流
+InputStreamReader
+OutputSteamWriter
+
+
+包装流： 装饰者模式
+内存流： 适配器模式
