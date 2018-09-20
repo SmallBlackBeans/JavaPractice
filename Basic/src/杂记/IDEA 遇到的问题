@@ -22,3 +22,15 @@ git push origin master
 idea 不能new package
 对src目录右键，make directory as ->sources root
 
+
+
+4.
+Intellij idea 出现错误 error:java: 无效的源发行版: 9解决方法
+说明Project language lever 版本是9 和项目的jdk不符合
+降低Project language lever 为 8
+
+
+5.
+idea output path is not 指定
+
+module settting 中 手动指定output路径
