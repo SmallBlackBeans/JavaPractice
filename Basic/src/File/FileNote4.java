@@ -1,7 +1,5 @@
 package File;
 
-import com.sun.xml.internal.bind.util.Which;
-
 import java.io.*;
 
 /**
@@ -11,7 +9,6 @@ import java.io.*;
  */
 public class FileNote4 {
     public static void main(String[] args) throws Exception {
-
         //1. 源文件
         File srcFile = new File("src.txt");
         File descFile = new File("desc.text");

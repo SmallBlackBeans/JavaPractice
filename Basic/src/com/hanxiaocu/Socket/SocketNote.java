@@ -19,18 +19,18 @@ public class SocketNote {
             int port = Integer.parseInt(args[1]);
             try {
                 System.out.println("连接到主机： " + serverName + " ,端口号： " + port);
-                Socket client = new Socket(serverName, port);
-                System.out.println("远程主机地址： " + client.getRemoteSocketAddress());
+                Socket server = new Socket(serverName, port);
+                System.out.println("远程主机地址： " + server.getRemoteSocketAddress());
 
-                OutputStream outToserver = client.getOutputStream();
+                OutputStream outToserver = server.getOutputStream();
                 DataOutputStream out = new DataOutputStream(outToserver);
 
-                out.writeUTF("Hello from" + client.getLocalSocketAddress());
+                out.writeUTF("Hello from" + server.getLocalSocketAddress());
 
-                InputStream inFromServer = client.getInputStream();
+                InputStream inFromServer = server.getInputStream();
                 DataInputStream in = new DataInputStream(inFromServer);
                 System.out.println("服务器响应： " + in.readUTF());
-                client.close();
+                server.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -47,13 +47,13 @@ public class SocketNote {
                 try {
                     System.out.println("等待远程连接,端口号为：" + serverSocket.getLocalPort() + "...");
                     //accept() 方法返回服务器上一个新的 socket 引用，该 socket 连接到客户端的 socket。
-                    Socket server = serverSocket.accept();
-                    System.out.println("远程主机地址：" + server.getRemoteSocketAddress());
-                    DataInputStream in = new DataInputStream(server.getInputStream());
+                    Socket client = serverSocket.accept();
+                    System.out.println("远程主机地址：" + client.getRemoteSocketAddress());
+                    DataInputStream in = new DataInputStream(client.getInputStream());
                     System.out.println(in.readUTF());
-                    DataOutputStream out = new DataOutputStream(server.getOutputStream());
-                    out.writeUTF("谢谢链接我 " + server.getLocalSocketAddress() + "\n 拜拜");
-                    server.close();
+                    DataOutputStream out = new DataOutputStream(client.getOutputStream());
+                    out.writeUTF("谢谢链接我 " + client.getLocalSocketAddress() + "\n 拜拜");
+                    client.close();
                 } catch (SocketTimeoutException s) {
                     System.out.println("Socket timed out!");
                     break;
