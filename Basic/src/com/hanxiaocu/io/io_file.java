@@ -76,7 +76,7 @@ public class io_file {
             //读 输入
             InputStream fs = new FileInputStream(filename);
             //or
-            File f = new File(filename);
+            com.hanxiaocu.File f = new com.hanxiaocu.File(filename);
             InputStream is = new FileInputStream(f);
 
             //写 输出到文件

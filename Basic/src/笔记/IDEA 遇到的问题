@@ -33,4 +33,7 @@ Intellij idea 出现错误 error:java: 无效的源发行版: 9解决方法
 5.
 idea output path is not 指定
 
+project settting out 设置 /Users/hanchenghai/Desktop/Practice/JavaPractice/Basic/out
+module settting 选择继承
+或
 module settting 中 手动指定output路径

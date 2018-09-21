@@ -1,4 +1,4 @@
-package File;
+package com.hanxiaocu.File;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -11,7 +11,7 @@ import java.io.FilenameFilter;
 public class FileNote3 {
 
     public static void main(String[] args) {
-        File dir = new File("/Users/hanchenghai/Desktop/Practice/JavaPractice/Basic/src/File/");
+        File dir = new File("/Users/hanchenghai/Desktop/Practice/JavaPractice/Basic/src/com.hanxiaocu.File/");
         File[] files = dir.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {

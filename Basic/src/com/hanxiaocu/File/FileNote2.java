@@ -1,8 +1,6 @@
-package File;
+package com.hanxiaocu.File;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Description: 批量修改文件名
@@ -10,7 +8,7 @@ import java.util.List;
  * Date: 2018/09/19 上午11:01
  */
 public class FileNote2 {
-    private static final String fileDir = "/Users/hanchenghai/Desktop/Practice/JavaPractice/Basic/src/File/";
+    private static final String fileDir = "/Users/hanchenghai/Desktop/Practice/JavaPractice/Basic/src/com.hanxiaocu.File/";
 
     public static void main(String[] args) {
         File dir = new File(fileDir);

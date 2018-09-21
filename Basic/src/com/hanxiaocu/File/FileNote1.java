@@ -1,4 +1,4 @@
-package File;
+package com.hanxiaocu.File;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -13,10 +13,10 @@ import java.util.List;
 public class FileNote1 {
 
     /**
-     * /Users/hanchenghai/Desktop/Practice/JavaPractice/Basic/src/File/FileNote1.java
+     * /Users/hanchenghai/Desktop/Practice/JavaPractice/Basic/src/com.hanxiaocu.File/FileNote1.java
      */
 
-    private static final String filePath = "/Users/hanchenghai/Desktop/Practice/JavaPractice/Basic/src/File/FileNote1.java";
+    private static final String filePath = "/Users/hanchenghai/Desktop/Practice/JavaPractice/Basic/src/com.hanxiaocu.File/FileNote1.java";
     private static List<String> parents = new ArrayList<>();
 
     public static void main(String[] args) {
