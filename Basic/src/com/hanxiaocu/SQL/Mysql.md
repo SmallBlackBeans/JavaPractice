@@ -93,6 +93,7 @@ truncate table tablename;
 
 #### 插入多条 数据
 如果数据是字符型，必须使用单引号或者双引号，如："value"。
+对于主键自增的列，传null即可
 ```sql
 Insert into tablename (name,age,date) 
 values 
@@ -100,7 +101,8 @@ values
 (“Xiaoli ”,22,NOW()),
 (“Xiaohong ”,22,NOW());
 ```
-==
+
+ 
 -------
 
 #### 约束
@@ -307,6 +309,15 @@ inner join <= min(left join, right join)
 full join >= max(left join, right join)
 当 inner join < min(left join, right join) 时， full join > max(left join, right join)
 
+自连接查询 针对一些树形状的结果，如记录中包含p_id
+```sql
+select id, name, parentName
+from tablename child 
+LEFT JOIN tablename parent
+ON child.parent_id = parent.id
+```
+
+
 #### Mysql NULL 处理
 不能使用= !=运算符
 NULL = NULL  返回是false
@@ -325,12 +336,14 @@ select product_name, COALESCE(price,0) from product_tb;
 ```
 
 #### 正则
+```sql
 select name from tablename where name regexp ‘^韩’;
 select name from user where name regexp ‘^[aeiou]|ok$'
+```
 
 #### 事务
 事务主要用于处理操作量大，复杂度高的数据
-MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务
+MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务，外键 ，索引
 事务处理可以用来维护数据库的完整性，保证成批的 SQL 语句要么全部执行，要么全部不执行。
 事务用来管理 insert,update,delete 语句
 * A 原子性 要么ok  要么滚回去
@@ -355,6 +368,10 @@ SET TRANSACTION；用来设置事务的隔离级别。InnoDB存储引擎提供�
 
 
 #### Alter 命令
+修改引擎
+```sql
+alter table tablename ENGINE='InnoDB';
+```
 修改数据表名或者修改数据表字段
 删除字段
 ```sql
@@ -462,6 +479,7 @@ create temporary table tablename(
 
 #### 视图
 可视化的表，视图总是显示最新的数据
+分割了数据权限，可以提供一个视图给别人进行操作
 创建视图
 ```sql
 CREATE VIEW view_name AS
