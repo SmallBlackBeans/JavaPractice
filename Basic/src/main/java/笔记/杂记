@@ -432,3 +432,4 @@ LIMIT < limit_number >
 DQL 查询
 DDL 定义
 DML 操作
+DCL 控制 改变权限等

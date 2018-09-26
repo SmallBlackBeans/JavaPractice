@@ -1,4 +1,4 @@
-package com.hanxiaocu.jdbc;
+package com.hanxiaocu.test;
 
 import java.sql.*;
 
@@ -9,9 +9,9 @@ import java.sql.*;
  */
 public class JdbcTest {
 
-    private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
+    private static final String DRIVER_NAME = "com.mysql.cj.test.Driver";
 
-    private static final String URL = "jdbc:mysql://localhost:3306/mysql_study?autoReconnect=true&useSSL=false";
+    private static final String URL = "test:mysql://localhost:3306/mysql_study?autoReconnect=true&useSSL=false";
 
     private static final String USER_NAME = "root";
 
