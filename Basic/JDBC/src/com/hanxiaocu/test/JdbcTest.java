@@ -11,7 +11,8 @@ public class JdbcTest {
 
     private static final String DRIVER_NAME = "com.mysql.cj.test.Driver";
 
-    private static final String URL = "test:mysql://localhost:3306/mysql_study?autoReconnect=true&useSSL=false";
+    //开启预编译缓存优化，默认是关闭的
+    private static final String URL = "jdbc:mysql://localhost:3306/mysql_study?autoReconnect=true&useSSL=false&useServerPrepStmts=true&cachePrepStmts=true";
 
     private static final String USER_NAME = "root";
 
@@ -25,6 +26,7 @@ public class JdbcTest {
             //获取连接
             connection = DriverManager.getConnection(URL, USER_NAME, PWD);
             String sql = "SELECT * FROM apps where app_name like '%宝%'";
+            //
             PreparedStatement prst = connection.prepareStatement(sql);
             ResultSet rs = prst.executeQuery();
             while (rs.next()) {
