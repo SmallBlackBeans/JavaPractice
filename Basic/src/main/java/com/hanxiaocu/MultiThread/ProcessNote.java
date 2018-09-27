@@ -25,7 +25,7 @@ public class ProcessNote {
 
         StringBuilder sb = new StringBuilder(80);
         sb.append("public class Hello {");
-        sb.append("public static void main(String[] args) {");
+        sb.append("public static void main(基础.md[] args) {");
         sb.append("System.out.println(\"你是一只猪吗\");");
         sb.append("}");
         sb.append("}");

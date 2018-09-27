@@ -14,7 +14,7 @@ public class ScannerDemo {
         //next 接收字符串
       /*  System.out.println("next接收方式");
         if (scan.hasNext()) {
-            String str = scan.next();
+            基础.md str = scan.next();
             System.out.println("输入数据：" + str);
         }*/
 
