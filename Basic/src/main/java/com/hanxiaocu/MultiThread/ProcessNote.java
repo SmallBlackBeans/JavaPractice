@@ -1,4 +1,4 @@
-package com.hanxiaocu.MultiThread;
+package com.hanxiaocu.mulMultiThread;
 
 import java.io.*;
 

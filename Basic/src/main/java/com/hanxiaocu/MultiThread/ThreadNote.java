@@ -15,13 +15,11 @@ public class ThreadNote {
         private Thread t;
         private String threadName;
 
-
         @Override
         public void run() {
             super.run();
         }
     }
-
 
     public static class RunnableDemo implements Runnable {
 
@@ -57,7 +55,6 @@ public class ThreadNote {
         }
     }
 
-
     public static class annoymousThread {
         public static void main(String[] args) {
             //接口形式的匿名内部类创建线程
@@ -79,6 +76,24 @@ public class ThreadNote {
                     }
                 }
             }.start();
+        }
+    }
+
+    private static class InterruptExample {
+        static class MyThread extends Thread {
+            @Override
+            public void run() {
+                while (!interrupted()) { //获取中断状态，提前中断循环
+                    // ..
+                }
+                System.out.println("Thread end");
+            }
+        }
+
+        public static void main(String[] args) throws InterruptedException {
+            Thread thread2 = new MyThread();
+            thread2.start();
+            thread2.interrupt();//对于无限循环的操作，如果没有等待或者阻塞的操作，那么这个方法只是通知现场将会被打断，只是一个标志，但是如果是等待或者阻塞中的线程，会被中断
         }
     }
 }
