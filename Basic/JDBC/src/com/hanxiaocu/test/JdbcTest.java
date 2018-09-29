@@ -18,7 +18,10 @@ public class JdbcTest {
 
     private static final String PWD = "Mysql@Han0302";
 
+
+
     public static void main(String[] args) {
+
         Connection connection = null;
         try {
             //加载驱动 现在不需要这句话了，因为定义了一个规范，会去jar包，META-INF/service 文件夹下查找
@@ -28,7 +31,7 @@ public class JdbcTest {
             String sql = "SELECT * FROM apps where app_name like '%宝%'";
             //
             PreparedStatement prst = connection.prepareStatement(sql);
-            ResultSet rs = prst.executeQuery();
+            ResultSet         rs   = prst.executeQuery();
             while (rs.next()) {
                 System.out.println("---" + rs.getString("app_name"));
             }
