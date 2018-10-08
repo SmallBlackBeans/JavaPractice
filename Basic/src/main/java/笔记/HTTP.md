@@ -1,7 +1,5 @@
 ### URL
-* ___
-* ***
-* ---
+
 URI 包含 URL 和 URN，目前 WEB 只有 URL 比较流行，所以见到的基本都是 URL。
 
 * URI（Uniform Resource Identifier，统一资源标识符）
@@ -10,8 +8,10 @@ URI 包含 URL 和 URN，目前 WEB 只有 URL 比较流行，所以见到的基
 
 ### 请求和响应报文
 1. 请求报文
+
     ![请求报文](./resource/请求报文.png)
 2. 响应报文
+
     ![响应报文](./resource/响应报文.png)
     
     
@@ -192,11 +192,10 @@ Vary: Accept-Language
 
 例如，一个客户端发送了一个包含 Accept-Language 首部字段的请求之后，源服务器返回的响应包含 `Vary: Accept-Language` 内容，缓存服务器对这个响应进行缓存之后，在客户端下一次访问同一个 URL 资源，并且 Accept-Language 与缓存中的对应的值相同时才会返回该缓存。
 
-
 #### 内容编码
-内容编码将实体主体进行压缩，从而减少传输的数据量。
+内容编码将**实体主体**(不会压缩请求和响应首部)进行压缩，从而减少传输的数据量。
 
-常用的内容编码有：gzip、compress、deflate、identity。
+常用的内容编码有：**gzip、compress、deflate、identity**。
 
 浏览器发送 Accept-Encoding 首部，其中包含有它所支持的压缩算法，以及各自的优先级。服务器则从中选择一种，使用该算法对响应的消息主体进行压缩，并且发送 Content-Encoding 首部来告知浏览器它选择了哪一种算法。由于该内容协商过程是基于编码类型来选择资源的展现形式的，在响应的 Vary 首部至少要包含 Content-Encoding。
 
@@ -222,4 +221,85 @@ Content-Type: text/plain
 
 
 ### HTTPs
-<div align="center"> <img src="./resource/How-HTTPS-Works.png" width="600"/> </div><br>
+
+HTTPs 采用混合的加密机制，使用非对称密钥加密用于传输对称密钥来保证传输过程的安全性，之后使用对称密钥加密进行通信来保证通信过程的效率。（下图中的 Session Key 就是对称密钥）
+
+<div align="center"> <img src="./resource/How-HTTPS-Works.png" width="500"/> </div><br>
+
+双向验证
+
+<div align="center"> <img src="./resource/Https双向验证.png" width="500"/> </div><br>
+
+
+### HTTP/2.0
+
+#### HTTP/1.x 缺陷
+HTTP/1.x 实现简单是以牺牲性能为代价的：
+
+* 客户端需要使用多个连接才能实现并发和缩短延迟；
+* 不会压缩请求和响应首部，从而导致不必要的网络流量；
+* 不支持有效的资源优先级，致使底层 TCP 连接的利用率低下。
+
+#### 二进制分帧层
+HTTP/2.0 将报文分成 HEADERS 帧和 DATA 帧，它们都是二进制格式的。
+
+在通信过程中，只会有一个 TCP 连接存在，它承载了任意数量的双向数据流（Stream）。
+
+* 一个数据流（Stream）都有一个唯一标识符和可选的优先级信息，用于承载双向信息。
+* 消息（Message）是与逻辑请求或响应对应的完整的一系列帧。
+* 帧（Frame）是最小的通信单位，来自不同数据流的帧可以交错发送，然后再根据每个帧头的数据流标识符重新组装。
+
+<div align="center"> <img src="./resource/http2.0通信.png" width="500"/> </div><br>
+
+
+#### 服务端推送
+HTTP/2.0 在客户端请求一个资源时，会把相关的资源一起发送给客户端，
+客户端就不需要再次发起请求了。例如客户端请求 page.html 页面，
+服务端就把 script.js 和 style.css 等与之相关的资源一起(通过其他数据流推送)发给客户端。
+
+
+
+### HTTP/1.1 新特性
+
+* 默认是长连接
+
+* 支持管线化处理
+
+* 支持同时打开多个 TCP 连接
+
+* 支持虚拟主机(例如本地修改host ip 映射)
+
+* 新增状态码 100(表明到目前为止都很正常，客户端可以继续发送请求或者忽略这个响应。)
+
+* 支持分块传输编码(Chunked Transfer Coding，可以把数据分割成多块，让浏览器逐步显示页面)
+
+* 新增缓存处理指令 max-age
+
+
+
+### GET 和 POST 区别
+#### 作用
+GET 用于获取资源，而 POST 用于传输实体主体。
+
+#### 参数
+因为 URL 只支持 ASCII 码，因此 GET 的参数中如果存在中文等字符就需要先进行编码。例如 中文 会转换为 %E4%B8%AD%E6%96%87，而空格会转换为 %20。
+POST 参考支持标准字符集。
+
+#### 安全
+
+安全的 HTTP 方法不会改变服务器状态，也就是说它只是可读的
+> 安全的方法除了 GET 之外还有：HEAD、OPTIONS。
+  不安全的方法除了 POST 之外还有 PUT、DELETE。
+
+#### 幂等性
+幂等的 HTTP 方法，同样的请求被执行一次与连续执行多次的效果是一样的，服务器的状态也是一样的。换句话说就是，幂等方法不应该具有副作用（统计用途除外）
+> 在正确实现的条件下，GET，HEAD，PUT 和 DELETE 等方法都是幂等的，而 POST 方法不是。
+
+#### 可缓存
+一般GET 要进行缓存，POST不进行缓存
+
+#### XMLHttpRequest
+在使用 XMLHttpRequest 的 POST 方法时，浏览器会先发送 Header 再发送 Data。
+> 但并不是所有浏览器会这么做，例如火狐就不会。
+
+而 GET 方法 Header 和 Data 会一起发送。
