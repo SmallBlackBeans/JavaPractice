@@ -107,7 +107,7 @@ byte[] bytes = str1.getBytes();
 * InputStreamReader 实现从字节流解码成字符流；
 * OutputStreamWriter 实现字符流编码成为字节流。
 
-<div align="center"> <img src="./resource/Reader.png" width="600"/></div><br>
+<div align="left"> <img src="./resource/Reader.png" width="600"/></div><br>
 
 实现逐行输出文本文件的内容
 ```java_holder_method_tree
