@@ -199,7 +199,7 @@ ALTER TABLE Persons ALTER City DROP DEFAULT 删除默认约束
 ```mysql
 Select column1,column2 from tablename;
 
-SELECT name, CONCAT(url, ', ', alexa, ', ', country) AS site_info
+SELECT name, CONCAT(TRIM(url), ', ', alexa, ', ', TRIM(country)) AS site_info
 FROM Websites;
 ```
 
@@ -244,6 +244,13 @@ select * from tablename where field LIKE ‘%xxx%’ AND condition
 _占一位字符，查询三个字符的field
 ```sql
 select * from tablename where field LIKE ‘_x_’ AND condition
+```
+
+[] 匹配集合内的字符
+```sql
+SELECT *
+FROM mytable
+WHERE col LIKE '[^AB]%'; -- 不以 A 和 B 开头的任意文本
 ```
 
 ##### Union 联合查询
@@ -478,8 +485,12 @@ create temporary table tablename(
 ```
 
 #### 视图
-可视化的表，视图总是显示最新的数据
-分割了数据权限，可以提供一个视图给别人进行操作
+- 可视化的表，视图总是显示最新的数据
+- 简化复杂的 SQL 操作，比如复杂的连接；
+- 只使用实际表的一部分数据；
+- 通过只给用户访问视图的权限，保证数据的安全性；
+- 更改数据格式和表示。
+
 创建视图
 ```sql
 CREATE VIEW view_name AS
@@ -498,6 +509,7 @@ WHERE condition
 ```sql
 DROP VIEW view_name
 ```
+
 
 #### 复制表
 完全的复制MySQL的数据表，包括表的结构，索引，默认值
@@ -696,6 +708,12 @@ LEFT JOIN Websites
 ON access_log.site_id=Websites.id
 GROUP BY Websites.name;
 ```
+分组规定：
+
+- GROUP BY 子句出现在 WHERE 子句之后，ORDER BY 子句之前；
+- 除了汇总字段外，SELECT 语句中的每一字段都必须在 GROUP BY 子句中给出；
+- NULL 的行会单独分为一组；
+- 大多数 SQL 实现不支持 GROUP BY 列具有可变长度的数据类型。
 ##### Having 
 在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与聚合函数一起使用。
 ```sql
@@ -706,36 +724,174 @@ WHERE Websites.alexa < 200
 GROUP BY Websites.name
 HAVING SUM(access_log.count) > 200;
 ```
-##### UCASE() LCASE() 大小写转换
+##### UCASE() LCASE() 
+大小写转换
 ```sql
 SELECT UCASE(name) AS site_title, url FROM Websites;
 ```
-##### MID() 文本中提取字符
+##### MID() 
+文本中提取字符
 ```sql
 SELECT MID(name,1,4) AS ShortTitle FROM Websites; 提取前四个字符
 ```
-##### LEN() 返回文本长度
+##### LEN() 
+返回文本长度
 ```sql
 SELECT name, LENGTH(url) as LengthOfURL FROM Websites;
 ```
-##### ROUND()四舍五入
+##### ROUND()
+四舍五入
 ```sql
 select ROUND(-1.23); ——> -1 
 select ROUND(1.298, 1); ——> 1.3 保留一位小数
 ```
-##### NOW()返回当前系统日期和时间
+##### NOW()
+返回当前系统日期和时间
 ```sql
 SELECT name, url, Now() AS date FROM Websites;
 ```
-##### FORMAT() 对字符串显示格式化
+##### FORMAT() 
+对字符串显示格式化
 ```sql
 SELECT name, url, DATE_FORMAT(Now(),'%Y-%m-%d') AS date FROM Websites;
 ```
 
 
 
+##### SOUNDEX() 
+可以将一个字符串转换为描述其语音表示的字母数字模式。
+```sql
+SELECT *
+FROM mytable
+WHERE SOUNDEX(col1) = SOUNDEX('apple')
+```
 
 
+### 存储过程
+存储过程可以看成是对一系列 SQL 操作的批处理。
+
+使用存储过程的好处：
+
+- 代码封装，保证了一定的安全性；
+- 代码复用；
+- 由于是预先编译，因此具有很高的性能。
+
+命令行中创建存储过程需要自定义分隔符，因为命令行是以 ; 为结束符，而存储过程中也包含了分号，因此会错误把这部分分号当成是结束符，造成语法错误。
+
+包含 in、out 和 inout 三种参数。
+
+给变量赋值都需要用 select into 语句。
+
+每次只能给一个变量赋值，不支持集合的操作。
+
+```sql
+delimiter //
+
+create procedure myprocedure( out ret int )
+    begin
+        declare y int;
+        select sum(col1)
+        from mytable
+        into y;
+        select y*y into ret;
+    end //
+
+delimiter ;
+
+```
+
+```sql
+call myprocedure(@ret);
+select @ret;
+```
+
+### 游标
+在存储过程中使用游标可以对一个结果集进行移动遍历。
+
+游标主要用于交互式应用，其中用户需要对数据集中的任意行进行浏览和修改。
+
+使用游标的四个步骤：
+
+- 声明游标，这个过程没有实际检索出数据；
+- 打开游标；
+- 取出数据；
+- 关闭游标；
+```sql
+delimiter // -- 分隔符
+create procedure myprocedure(out ret int)
+    begin
+        declare done boolean default 0;
+
+        declare mycursor cursor for
+        select col1 from mytable;
+        # 定义了一个 continue handler，当 sqlstate '02000' 这个条件出现时，会执行 set done = 1
+        declare continue handler for sqlstate '02000' set done = 1;
+
+        open mycursor;
+
+        repeat
+            fetch mycursor into ret;
+            select ret;
+        until done end repeat;
+
+        close mycursor;
+    end //
+ delimiter ;
+```
+
+### 触发器
+触发器会在某个表执行以下语句时而自动执行：DELETE、INSERT、UPDATE。
+
+INSERT 触发器包含一个名为 NEW 的虚拟表。
+
+DELETE 触发器包含一个名为 OLD 的虚拟表，并且是只读的。
+
+UPDATE 触发器包含一个名为 NEW 和一个名为 OLD 的虚拟表，其中 NEW 是可以被修改的，而 OLD 是只读的。
+
+MySQL 不允许在触发器中使用 CALL 语句，也就是不能调用存储过程。
+```sql
+CREATE TRIGGER mytrigger AFTER INSERT ON mytable
+FOR EACH ROW SELECT NEW.col into @result;
+
+SELECT @result; -- 获取结果
+```
+
+
+#### SQL 解析顺序
+```html
+SELECT DISTINCT
+    < select_list >
+FROM
+    < left_table > < join_type >
+JOIN < right_table > ON < join_condition >
+WHERE
+    < where_condition >
+GROUP BY
+    < group_by_list >
+HAVING
+    < having_condition >
+ORDER BY
+    < order_by_condition >
+LIMIT < limit_number >
+```
+ 1. FROM <left_table>   笛卡尔积
+ 2. ON <join_condition>  过滤
+ 3. <join_type> JOIN <right_table>
+ 4. WHERE <where_condition>
+ 5. GROUP BY <group_by_list>
+ 6. HAVING <having_condition>
+ 7. SELECT
+ 8. DISTINCT <select_list>
+ 9. ORDER BY <order_by_condition>
+10. LIMIT <limit_number>
+
+#### 数据库名词
+* DQL 查询 结果是一个临时表
+* DDL 定义
+* DML 操作  返回影响的行数
+* DCL 控制 改变权限等
+
+> 预编译有效防止SQL注入
 
 
 

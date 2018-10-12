@@ -42,7 +42,7 @@ sudo 允许一般用户使用 root 可执行的命令，不过只有在 /etc/sud
 **因此新增文件、删除文件、更改文件名这些操作与目录的 w 权限有关。**
 
 ### 目录配置
-<div align = "center"><img src="./resource/linux目录配置.png" width="600"/><div><br>
+<div align = "center"><img src="./resource/linux目录配置.png" width="600"/></div><br>
 基础的：
 * / (root, 根目录)
 * /usr (unix software resource)：所有系统默认软件都会安装到这个目录；
