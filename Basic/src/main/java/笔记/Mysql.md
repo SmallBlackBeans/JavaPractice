@@ -448,6 +448,15 @@ index [indexname] (name(length))
 );
 ```
 
+**索引的优点：** 
+- 大大减少了服务器需要扫描的数据行数。
+
+- 帮助服务器避免进行排序和分组，以及避免创建临时表（B+Tree 索引是有序的，可以用于 ORDER BY 和 GROUP BY 操作。临时表主要是在排序和分组过程中创建，因为不需要排序和分组，也就不需要创建临时表）。
+
+- 将随机 I/O 变为顺序 I/O（B+Tree 索引是有序的，会将相邻的数据都存储在一起）。
+
+
+
 ##### 删除索引
 ```sql
 drop index indexname on tablename;
@@ -842,6 +851,9 @@ create procedure myprocedure(out ret int)
 ### 触发器
 触发器会在某个表执行以下语句时而自动执行：DELETE、INSERT、UPDATE。
 
+触发器必须指定在语句执行之前还是之后自动执行，之前执行使用 BEFORE 关键字，之后执行使用 AFTER 关键字。
+BEFORE 用于数据验证和净化，AFTER 用于审计跟踪，将修改记录到另外一张表中。
+
 INSERT 触发器包含一个名为 NEW 的虚拟表。
 
 DELETE 触发器包含一个名为 OLD 的虚拟表，并且是只读的。
@@ -856,6 +868,155 @@ FOR EACH ROW SELECT NEW.col into @result;
 SELECT @result; -- 获取结果
 ```
 
+### 事务管理
+基本术语：
+
+- 事务（transaction）指一组 SQL 语句；
+- 回退（rollback）指撤销指定 SQL 语句的过程；
+- 提交（commit）指将未存储的 SQL 语句结果写入数据库表；
+- 保留点（savepoint）指事务处理中设置的临时占位符（placeholder），你可以对它发布回退（与回退整个事务处理不同）。
+
+> 不能回退 SELECT 语句，回退 SELECT 语句也没意义；也不能回退 CREATE 和 DROP 语句
+
+```sql
+START TRANSACTION
+// ...
+SAVEPOINT delete1
+// ...
+ROLLBACK TO delete1
+// ...
+COMMIT
+```
+
+### 字符集
+基本术语：
+
+- 字符集为字母和符号的集合；
+- 编码为某个字符集成员的内部表示；
+- 校对字符指定如何比较，主要用于排序和分组。
+
+```sql
+CREATE TABLE mytable
+(col VARCHAR(10) CHARACTER SET latin COLLATE latin1_general_ci )
+DEFAULT CHARACTER SET hebrew COLLATE hebrew_general_ci;
+```
+
+```sql
+SELECT *
+FROM mytable
+ORDER BY col COLLATE(校对) latin1_general_ci;
+```
+
+
+### 权限管理
+
+```sql
+REVOKE SELECT, INSERT ON mydatabase.* FROM myuser;
+```
+
+```sql
+SET PASSWROD FOR myuser = Password('new_password');
+```
+
+
+### MySQL 索引
+1. B+Tree 索引
+
+2. 哈希索引
+
+3. 全文索引
+MyISAM 存储引擎支持全文索引，用于查找文本中的关键词，而不是直接比较是否相等。
+
+InnoDB 存储引擎在 MySQL 5.6.4 版本中也开始支持全文索引。
+
+4. 空间数据索引（R-Tree）
+
+
+## 查询性能优化
+### 使用 Explain 进行分析
+
+Explain 用来分析 SELECT 查询语句，开发人员可以通过分析 Explain 结果来优化查询语句。
+
+比较重要的字段有：
+
+- select_type : 查询类型，有简单查询、联合查询、子查询等
+- key : 使用的索引
+- rows : 扫描的行数
+
+### 优化数据访问
+#### 1. 减少请求的数据量
+- 只返回必要的列：最好不要使用 SELECT * 语句。
+- 只返回必要的行：使用 LIMIT 语句来限制返回的数据。
+- 缓存重复查询的数据：使用缓存可以避免在数据库中进行查询，特别在要查询的数据经常被重复查询时，缓存带来的查询性能提升将会是非常明显的。
+
+#### 2. 减少服务器端扫描的行数
+- 最有效的方式是使用索引来覆盖查询。
+
+
+### 重构查询方式
+#### 1. 切分大查询
+#### 2. 分解大连接查询
+
+
+### 存储引擎
+#### InnoDB
+#### MyISAM
+#### 比较
+- 事务：InnoDB 是事务型的，可以使用 Commit 和 Rollback 语句。
+
+- 并发：MyISAM 只支持表级锁，而 InnoDB 还支持行级锁。
+
+- 外键：InnoDB 支持外键。
+
+- 备份：InnoDB 支持在线热备份。
+
+- 崩溃恢复：MyISAM 崩溃后发生损坏的概率比 InnoDB 高很多，而且恢复的速度也更慢。
+
+- 其它特性：MyISAM 支持压缩表和空间数据索引。
+
+
+
+## 切分
+### 水平切分
+将同一个表中的记录拆分到多个结构相同的表中。  
+它可以将数据分布到集群的不同节点上，从而缓存单个数据库的压力。
+
+### 垂直切分 
+在数据库的层面使用垂直切分将按数据库中表的密集程度部署到不同的库中，
+例如将原来的电商数据库垂直切分成商品数据库、用户数据库等。
+
+### Sharding 策略
+- 哈希取模：hash(key) % N；
+- 范围：可以是 ID 范围也可以是时间范围；
+- 映射表：使用单独的一个数据库来存储映射关系。
+
+#### Sharding 存在的问题
+#### 1. 事务问题
+使用分布式事务来解决，比如 XA 接口。
+
+#### 2. 连接
+可以将原来的连接分解成多个单表查询，然后在用户程序中进行连接。
+
+#### 3. ID 唯一性
+- 使用全局唯一 ID（GUID）  
+- 为每个分片指定一个 ID 范围  
+- 分布式 ID 生成器 (如 Twitter 的 Snowflake 算法)
+
+## 复制
+### 主从复制
+主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程。
+- binlog 线程 ：负责将主服务器上的数据更改写入二进制日志（Binary log）中。
+- I/O 线程 ：负责从主服务器上读取二进制日志，并写入从服务器的重放日志（Replay log）中。
+- SQL 线程 ：负责读取重放日志并重放其中的 SQL 语句。
+
+### 读写分离
+读写分离能提高性能的原因在于：
+
+- 主从服务器负责各自的读和写，极大程度缓解了锁的争用；
+- 从服务器可以使用 MyISAM，提升查询性能以及节约系统开销；
+- 增加冗余，提高可用性。
+
+读写分离常用代理方式来实现，代理服务器接收应用层传来的读写请求，然后决定转发到哪个服务器。
 
 #### SQL 解析顺序
 ```html

@@ -16,13 +16,14 @@ public class SingletonUtil {
         }
     }
 
-
     //懒汉式写法
     public static class LazyInstance {
         //volatile 会屏蔽掉虚拟机中的一些必要的代码优化，因此运行效率并不是很高，不要大量使用
+        //1、保证内存可见性
+        //2、防止指令重排
         private static volatile LazyInstance instance = null;
 
-        public static  LazyInstance getInstance() {
+        public static LazyInstance getInstance() {
             //双重检查锁机制
             /**
              * 实质是使用了了volatile ，表示修饰的变量不进行本地线程缓存，每次对变量的读写都是直接操作共享内存
