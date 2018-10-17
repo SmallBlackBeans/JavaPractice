@@ -1,0 +1,8 @@
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //依赖其他子项目
+    compile project(":model")
+}

@@ -1,0 +1,11 @@
+plugins {
+    id 'war'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":repos")
+}

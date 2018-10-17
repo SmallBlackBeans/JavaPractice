@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.hanxiaocu.gradle.todo.repos.TodoReposTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-10-17T06:33:28" hostname="xiaoheidoudeMacBook-Pro.local" time="0.001">
+  <properties/>
+  <testcase name="testSave" classname="com.hanxiaocu.gradle.todo.repos.TodoReposTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

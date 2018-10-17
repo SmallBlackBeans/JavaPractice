@@ -1,0 +1,122 @@
+//plugins {
+//    id 'groovy'
+//    id 'java'//jar
+//    id 'war'
+//}
+//sourceCompatibility = 1.8
+
+repositories {
+    maven {
+        url ''
+    }
+    mavenLocal()
+    mavenCentral()
+}
+
+ext {
+    LOCAL_VERSION_NUMBER = 1
+}
+
+//发布
+apply plugin: 'maven-publish'
+publishing {
+    publications {
+        myPublish(MavenPublication) {
+            //会去gradle.properties 目录下找
+            //groupId = project.getGroup()
+            //groupId = 'org.hanxiaocu.gradle'
+            //artifactId = 'gradle-demo'
+            //version = '1.0'
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            name "myRepo" //私服地址
+            url ""
+        }
+    }
+}
+
+
+allprojects {
+    //支持打jar包
+    apply plugin: 'java'
+    //jdk兼容版本
+    sourceCompatibility = 1.8
+
+    //冲突策略,默认是选择冲突jar的最高版本
+    configurations.all {
+        resolutionStrategy {
+            //1.当冲突的时候，构建失败，提示冲突
+            failOnVersionConflict()
+            /**
+             * 1.可以在对应的jar包中移除相应的依赖,排除传递性依赖
+             * 2.在这里强制指定依赖的版本
+             */
+            force 'org.slf4j:slf4j-api:1.8.0-beta1'
+        }
+    }
+    dependencies {
+        /**
+         * 依赖关系
+         * 运行阶段可以依赖编译阶段，反之不能  Runtime ---> Compile
+         * 测试代码可以依赖源代码依赖 testXxx ---> Xxxx
+         */
+
+        //测试代码依赖的编译阶段，就是测试代码可以访问到
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+
+        compile 'ch.qos.logback:logback-classic:1.3.0-alpha4'
+
+        compile('org.hibernate:hibernate-core:3.6.3.Final') {
+            exclude group: "org.slf4j", module: "slf4j-api"//当与其他冲突时，移除本jar包的依赖
+        }
+    }
+
+}
+
+//多项目集成
+subprojects {
+
+}
+
+
+gradle.beforeProject {
+    project ->
+        println 'xxx'
+}
+
+gradle.afterProject {
+
+}
+
+//project.tasks
+//自定义任务
+def createDir = {
+        //闭包
+    path ->
+        File dir = new File(path)
+        if (!dir.exists()) {
+            dir.mkdirs()
+        }
+}
+task makeJavaDir() {
+    println 'makeJavaDir任务执行中...'
+    def paths = ['src/main/java', 'src/test/java', 'src/main/custom', 'src/test/custom']
+    doFirst {//执行任务前，创建目录
+        println 'makeJavaDir任务开始执行'
+        paths.forEach(createDir)
+    }
+    doLast {
+        println 'makeJavaDir任务执行完毕'
+    }
+}
+
+task makeWebDir() {
+    dependsOn 'makeJavaDir'//依赖于
+    def paths = ['src/main/webapp', 'src/test/webapp']
+    doLast {
+        paths.forEach(createDir)
+    }
+}

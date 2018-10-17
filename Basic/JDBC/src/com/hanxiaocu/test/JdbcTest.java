@@ -9,7 +9,7 @@ import java.sql.*;
  */
 public class JdbcTest {
 
-    private static final String DRIVER_NAME = "com.mysql.cj.test.Driver";
+    private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
     //开启预编译缓存优化，默认是关闭的
     private static final String URL = "jdbc:mysql://localhost:3306/mysql_study?autoReconnect=true&useSSL=false&useServerPrepStmts=true&cachePrepStmts=true";

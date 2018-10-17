@@ -1,0 +1,6 @@
+rootProject.name = 'groovy'
+include 'model'
+include 'web'
+include 'repos'
+
+//管理项目和子项目
