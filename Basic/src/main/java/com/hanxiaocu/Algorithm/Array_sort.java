@@ -103,7 +103,6 @@ abstract class MergeSort<T extends Comparable<T>> extends Sort<T> {
     protected T[] aux;
     protected  void merge(T[] arr, int l, int m, int h) {
         int i = l,j = m + 1;
-        
     }
 }
 
