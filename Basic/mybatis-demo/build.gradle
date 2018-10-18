@@ -16,4 +16,6 @@ dependencies {
     //compile group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
     compile 'org.mybatis:mybatis:3.4.6'
     compile 'mysql:mysql-connector-java:8.0.12'
+    compile 'com.alibaba:fastjson:1.2.51'
+
 }
