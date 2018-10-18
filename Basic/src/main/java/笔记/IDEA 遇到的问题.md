@@ -41,3 +41,6 @@ project settting out 设置
 /Users/hanchenghai/Desktop/Practice/JavaPractice/Basic/out
 
 module settting 选择继承 或 module settting 中 手动指定output路径
+
+**5. idea module git没有同步显示问题**
+最外层项目使用了maven,同步一下就好了。
