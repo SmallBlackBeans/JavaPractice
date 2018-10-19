@@ -1,5 +1,6 @@
 package com.hanxiaocu;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -18,6 +19,7 @@ public class 避免创建不必要的对象 {
         static boolean isRomanNumeral(String s) {
             return ROMAN.matcher(s).matches();
         }
+
     }
 
 
@@ -25,6 +27,14 @@ public class 避免创建不必要的对象 {
 
     Long num1;
     long num2;
+
+
+    public static void main(String[] args) {
+        List.of("1",'1','1');
+    }
+
+
+
 
 
 }

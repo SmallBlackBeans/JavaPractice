@@ -6,7 +6,6 @@ package com.hanxiaocu.Synchronized;
  * Date: 2018/09/14 下午5:58
  */
 
-import sun.rmi.runtime.Log;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
