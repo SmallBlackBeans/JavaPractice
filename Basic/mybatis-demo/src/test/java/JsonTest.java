@@ -2,6 +2,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import java.security.PrivilegedAction;
+import java.util.function.Supplier;
+
 /**
  * Description:
  * User: hanchenghai
@@ -25,6 +28,16 @@ public class JsonTest {
         //JSON.parseObject(dataStr, OrderData.Data.class);
         OrderData d = JSON.toJavaObject(json,OrderData.class);
         System.out.println(d);
+
+
+        Supplier<String>  supplierString = () -> "";
+        PrivilegedAction action = () -> 1;
+
     }
 
+
+
 }
+
+
+
