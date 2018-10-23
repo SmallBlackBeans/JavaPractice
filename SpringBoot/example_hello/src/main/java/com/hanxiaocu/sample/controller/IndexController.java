@@ -1,6 +1,6 @@
 package com.hanxiaocu.sample.controller;
 
-import com.hanxiaocu.sample.beans.AppProperties;
+import com.hanxiaocu.sample.config.AppProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

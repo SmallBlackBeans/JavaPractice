@@ -19,7 +19,7 @@ public class App {
             System.out.println(anno);
         }
 
-        //获取指定类型的注解
+        //获取指定类型是否有Custom注解
         if (clazz.isAnnotationPresent(Custom.class)) {
             Custom custom = clazz.getAnnotation(Custom.class);
             //3.调用抽象方法获取注解属性的值

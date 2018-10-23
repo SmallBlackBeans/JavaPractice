@@ -1,0 +1,11 @@
+<form action="/order/save.json" method="post" >
+    订单名称：<input name="order.name"/>
+    <p>
+        订单明细1
+        <input name="details[0].name">
+        <p></p>
+        订单明细2
+        <input name="details[1].name">
+    <p>
+    <input type="submit" value="Submit">
+</form>
