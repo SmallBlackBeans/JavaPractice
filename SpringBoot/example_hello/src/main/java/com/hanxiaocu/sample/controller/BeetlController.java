@@ -13,8 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping("/beetl")
-public class HelloBeetlController {
-    private static Logger logger = LoggerFactory.getLogger(HelloBeetlController.class);
+public class BeetlController {
+    private static Logger logger = LoggerFactory.getLogger(BeetlController.class);
     @RequestMapping("/index")
     public ModelAndView beetlHello() {
         logger.info("beetl hello");

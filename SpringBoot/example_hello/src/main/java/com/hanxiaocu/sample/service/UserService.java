@@ -10,5 +10,8 @@ import com.hanxiaocu.sample.domain.PO.User;
 public interface UserService {
     public void order();
 
-    User getUserByid(Long id);
+    public User getUserById(Long id);
+
+    public void updateUser(User user);
+
 }

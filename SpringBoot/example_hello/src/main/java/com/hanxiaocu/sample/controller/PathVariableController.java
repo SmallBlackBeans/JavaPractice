@@ -23,7 +23,7 @@ public class PathVariableController {
     @RequestMapping(path = "/{type}/get.json")
     @ResponseBody
     public User getUser(@PathVariable long id, @PathVariable Integer type) {
-        return userService.getUserByid(id);
+        return userService.getUserById(id);
     }
 
 

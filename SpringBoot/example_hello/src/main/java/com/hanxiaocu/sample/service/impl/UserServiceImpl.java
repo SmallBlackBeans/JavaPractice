@@ -21,12 +21,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByid(Long id) {
+    public User getUserById(Long id) {
         User user = new User();
         user.setUserId(10000L);
         user.setName("hanxiaocu");
         user.setSex(1);
         user.setBirthday(new Date());
         return user;
+    }
+
+    @Override
+    public void updateUser(User user) {
+
     }
 }

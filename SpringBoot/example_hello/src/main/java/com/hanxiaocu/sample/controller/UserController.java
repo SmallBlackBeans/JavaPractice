@@ -37,13 +37,13 @@ public class UserController {
     @RequestMapping(value = "/get/{id}.json")
     public @ResponseBody
     User getByid1(@PathVariable("id") Long id) {
-        return userService.getUserByid(id);
+        return userService.getUserById(id);
     }
 
     @RequestMapping(path = "/user/{id}.json", method = RequestMethod.GET)
     public @ResponseBody
     User getByid2(@PathVariable Long id) {
-        return userService.getUserByid(id);
+        return userService.getUserById(id);
     }
 
     ;
@@ -65,7 +65,7 @@ public class UserController {
     @GetMapping(value = "/consumes/{id}.json", consumes = "application/json", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public User forJson(@PathVariable long id, Model model) {
-        return userService.getUserByid(id);
+        return userService.getUserById(id);
     }
 
     @PostMapping(path = "/save/{id}.json", params = "action=save",headers = "token=xxxx")

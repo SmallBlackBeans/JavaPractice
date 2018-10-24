@@ -1,0 +1,11 @@
+<html5>
+
+    <body>
+    @if(true){
+        欢迎 您！
+    @}else{
+        xxx
+    @}
+    </body>
+
+</html5>

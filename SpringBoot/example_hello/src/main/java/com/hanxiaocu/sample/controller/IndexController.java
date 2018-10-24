@@ -16,7 +16,8 @@ public class IndexController {
     private AppProperties appProperties;
 
     @RequestMapping("/index")
-    String index() {
-        return appProperties.getName()+"——"+appProperties.getTitle();
+    public String index() {
+        return "index";
+        //return appProperties.getName() + "——" + appProperties.getTitle();
     }
 }

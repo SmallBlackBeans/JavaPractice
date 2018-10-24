@@ -28,7 +28,7 @@ public class ModelAndViewController {
     @GetMapping(path = "/view")
     public String addModelAttribute(Model model) {
         model.addAttribute("nihao");// 键名就是对象类型String  首字母小写 string=nihao
-        User userInfo = userService.getUserByid(1L);
+        User userInfo = userService.getUserById(1L);
         //model.addAttribute(userInfo);
         model.addAttribute("user", userInfo);
         System.out.println(model);
