@@ -25,7 +25,7 @@ import java.util.Map;
  * User: hanchenghai
  * Date: 2018/10/25 3:48 PM
  */
-@Repository
+@Repository("xxUserDao")
 public class UserDao {
 
     @Autowired
