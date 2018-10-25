@@ -1,0 +1,2 @@
+var users = [{name:"hnxiaocu"},{name:"lucy"}];
+var view = "/user/userlist.btl";
