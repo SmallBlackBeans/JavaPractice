@@ -8,6 +8,7 @@ Basic/.idea
 **/.idea
 */.idea
 .idea
+**/target/*
 */*.iml
 *.iml
 out
