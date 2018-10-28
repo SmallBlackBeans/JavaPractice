@@ -14,6 +14,8 @@
         <module>SpringBoot-Web</module>
         <module>SpringBoot-Beetl</module>
         <module>SpringBoot-Rest</module>
+        <module>SpringBoot-MongoDB</module>
+        <module>SpringBoot-Redis</module>
     </modules>
 
 
