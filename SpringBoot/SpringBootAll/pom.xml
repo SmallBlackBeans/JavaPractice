@@ -13,6 +13,7 @@
         <module>SpringBoot-Test</module>
         <module>SpringBoot-Web</module>
         <module>SpringBoot-Beetl</module>
+        <module>SpringBoot-Rest</module>
     </modules>
 
 

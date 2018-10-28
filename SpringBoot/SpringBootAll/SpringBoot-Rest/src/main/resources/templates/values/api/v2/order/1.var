@@ -1,0 +1,3 @@
+//pathVars 代表了URI路径参数数组, 所有URI路径参数将放到此列表中
+// var orderId = pathVars[0];
+var json = {"id": "abc", "name": "订单"};
