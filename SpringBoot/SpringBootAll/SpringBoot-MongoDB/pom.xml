@@ -26,6 +26,7 @@
     <packaging>war</packaging>
 
     <name>springBoot-mongodb</name>
+    <groupId>com.hanxiaocu</groupId>
     <artifactId>springBoot-mongodb</artifactId>
 
     <parent>
