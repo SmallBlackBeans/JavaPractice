@@ -18,6 +18,7 @@
         <module>SpringBoot-Redis</module>
         <module>SpringBoot-ES</module>
         <module>SpringBoot-Cache</module>
+        <module>SpringBoot-Session</module>
     </modules>
 
 
