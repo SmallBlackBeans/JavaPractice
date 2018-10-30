@@ -35,7 +35,7 @@ public class ErrorController extends AbstractErrorController {
         super(new DefaultErrorAttributes());
     }
 
-    @RequestMapping("/error")
+    //@RequestMapping("/error")
     public ModelAndView getErrorPath(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> model = Collections.unmodifiableMap(getErrorAttributes(request, false));
         //获取异常

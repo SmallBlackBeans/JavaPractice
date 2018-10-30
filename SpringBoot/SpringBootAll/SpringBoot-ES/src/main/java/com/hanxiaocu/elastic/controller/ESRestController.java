@@ -28,7 +28,7 @@ public class ESRestController {
     public String getLogById(@PathVariable String id) throws Exception {
         Book book = null;
         RestTemplate template = new RestTemplate();
-        HashMap<String, Object> params = new HashMap<>();
+        HashMap<String, Object> params = new HashMap();
         params.put("id",id);
         String str = template.getForObject("http://localhost:9200/product/book/{id}",String.class,params);
 

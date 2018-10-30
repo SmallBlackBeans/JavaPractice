@@ -15,7 +15,7 @@
             <File>log/sample.log</File>
             <rollingPolicy
                     class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <FileNamePattern>log/eyeland_%d{yyyy-MM-dd}.log</FileNamePattern>
+                <FileNamePattern>log/hanxiaocu_%d{yyyy-MM-dd}.log</FileNamePattern>
             </rollingPolicy>
             <layout class="ch.qos.logback.classic.PatternLayout">
                 <pattern>%date [%thread] %-5level %logger{80} - %msg%n</pattern>
@@ -47,10 +47,10 @@
         <appender
                 name="LOGFILE"
                 class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <File>log/test/eyeland.log</File>
+            <File>log/test/hanxiaocu.log</File>
             <rollingPolicy
                     class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <FileNamePattern>log/test/eyeland_%d{yyyy-MM-dd}.log</FileNamePattern>
+                <FileNamePattern>log/test/hanxiaocu_%d{yyyy-MM-dd}.log</FileNamePattern>
             </rollingPolicy>
             <layout class="ch.qos.logback.classic.PatternLayout">
                 <pattern>%date [%thread] %-5level %logger{80} [%file%line] - %msg%n</pattern>

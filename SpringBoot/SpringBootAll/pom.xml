@@ -11,14 +11,15 @@
     <modules>
         <module>SpringBoot-Basic</module>
         <module>SpringBoot-Test</module>
-        <module>SpringBoot-Web</module>
-        <module>SpringBoot-Beetl</module>
         <module>SpringBoot-Rest</module>
         <module>SpringBoot-MongoDB</module>
         <module>SpringBoot-Redis</module>
         <module>SpringBoot-ES</module>
         <module>SpringBoot-Cache</module>
         <module>SpringBoot-Session</module>
+        <module>SpringBoot-ZooKeeper</module>
+        <module>SpringBoot-Monitor</module>
+        <module>SpringBoot-Mybatis</module>
     </modules>
 
 

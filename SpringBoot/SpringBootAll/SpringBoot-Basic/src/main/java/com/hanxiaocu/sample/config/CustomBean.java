@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Configuration
 @ConfigurationProperties(prefix="custom")
-@PropertySource("classpath:custom.properties")
+@PropertySource(value = "classpath:custom.properties",encoding = "utf-8")
 @Component
 public class CustomBean {
     private String name;
