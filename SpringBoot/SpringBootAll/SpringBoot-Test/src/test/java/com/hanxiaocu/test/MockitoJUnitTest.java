@@ -1,11 +1,9 @@
 package com.hanxiaocu.test;
 
-import com.hanxiaocu.sample.basic.service.CreditUserService;
+// import com.hanxiaocu.sample.basic.service.CreditUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
 
@@ -25,28 +23,28 @@ import static org.mockito.Mockito.when;
 public class MockitoJUnitTest {
 
 
-
-    @Test
-    public void test() {
-        int userId = 10;
-        CreditUserService creditUserService = mock(CreditUserService.class);
-        when(creditUserService.getUserCredit(anyInt())).thenReturn(1000);
-
-
-        int ret = creditUserService.getUserCredit(10);
-
-        assertEquals(1000,ret);
-    }
-
-
-    public void testThrow() {
-        List list = mock(List.class);
-
-        doThrow(new UnsupportedOperationException("不支持clear 方法调用"))
-                .when(list).clear();
+    //
+    // @Test
+    // public void test() {
+    //     int userId = 10;
+    //     CreditUserService creditUserService = mock(CreditUserService.class);
+    //     when(creditUserService.getUserCredit(anyInt())).thenReturn(1000);
+    //
+    //
+    //     int ret = creditUserService.getUserCredit(10);
+    //
+    //     assertEquals(1000,ret);
+    // }
 
 
-        list.clear();//抛出异常
-    }
+    // public void testThrow() {
+    //     List list = mock(List.class);
+    //
+    //     doThrow(new UnsupportedOperationException("不支持clear 方法调用"))
+    //             .when(list).clear();
+    //
+    //
+    //     list.clear();//抛出异常
+    // }
 
 }

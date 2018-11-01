@@ -1,4 +1,4 @@
-package com.hanxiaocu.mybits;
+package com.hanxiaocu.mybatis;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

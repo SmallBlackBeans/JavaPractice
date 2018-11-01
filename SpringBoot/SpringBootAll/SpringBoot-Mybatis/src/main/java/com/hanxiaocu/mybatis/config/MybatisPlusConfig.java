@@ -1,7 +1,6 @@
-package com.hanxiaocu.mybits.config;
+package com.hanxiaocu.mybatis.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
 
 /**
  * Description: MybaitsPlus 配置类
@@ -9,6 +8,5 @@ import org.springframework.context.annotation.ImportResource;
  * Date: 2018/10/31 9:38 AM
  */
 @Configuration
-@ImportResource(locations = {"classpath:spring-mybaits.xml"})
 public class MybatisPlusConfig {
 }

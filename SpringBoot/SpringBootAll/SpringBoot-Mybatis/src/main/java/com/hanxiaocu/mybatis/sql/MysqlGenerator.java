@@ -1,4 +1,4 @@
-package com.hanxiaocu.mybits.sql;
+package com.hanxiaocu.mybatis.sql;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
-import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
@@ -75,7 +74,7 @@ public class MysqlGenerator {
                                 // .setTablePrefix(new String[]{"unionpay_"})// 此处可以修改为您的表前缀
                                 .setNaming(NamingStrategy.underline_to_camel)// 表名生成策略
                                 // .setInclude(new String[] {"citycode_org"}) // 需要生成的表
-                                // .setExclude(new String[]{"test"}) // 排除生成的表
+                                // .setExclude(new String[]{"mybatis"}) // 排除生成的表
                                 // 自定义实体，公共字段
                                 // .setSuperEntityColumns(new String[]{"test_id"})
                                 .setTableFillList(tableFillList)

@@ -1,4 +1,0 @@
-<plugins>
-    <!-- 分页插件配置 -->
-    <plugin interceptor="com.baomidou.mybatisplus.plugins.PaginationInterceptor"></plugin>
-</plugins>

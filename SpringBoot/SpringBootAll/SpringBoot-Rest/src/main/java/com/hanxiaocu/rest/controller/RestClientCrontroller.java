@@ -53,7 +53,7 @@ public class RestClientCrontroller {
         RestTemplate client = restTemplateBuilder.build();
         String       uri    = base + "/order";
         Order        order  = new Order();
-        order.setName("test");
+        order.setName("mybatis");
         HttpEntity<Order> body = new HttpEntity<Order>(order);
         String            ret  = client.postForObject(uri, body, String.class);
         return ret;
