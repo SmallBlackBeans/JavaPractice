@@ -21,6 +21,9 @@
         <module>SpringBoot-Monitor</module>
         <module>SpringBoot-Mybatis</module>
         <module>SpringBoot-RabbitMQ</module>
+        <module>SpringBoot-Docker</module>
+        <module>test</module>
+        <module>test</module>
     </modules>
 
 
