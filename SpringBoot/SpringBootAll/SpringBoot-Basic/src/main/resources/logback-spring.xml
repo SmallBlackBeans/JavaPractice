@@ -2,16 +2,12 @@
 <configuration>
     <!-- 默认 -->
     <springProfile name="dev">
-        <appender
-                name="STDOUT"
-                class="ch.qos.logback.core.ConsoleAppender">
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
             <encoder>
                 <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
             </encoder>
         </appender>
-        <appender
-                name="LOGFILE"
-                class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <File>log/sample.log</File>
             <rollingPolicy
                     class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -21,12 +17,9 @@
                 <pattern>%date [%thread] %-5level %logger{80} - %msg%n</pattern>
             </layout>
         </appender>
-        <appender
-                name="openlog_appender"
-                class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <appender name="openlog_appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <File>log/openlog.log</File>
-            <rollingPolicy
-                    class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
                 <FileNamePattern>log/openlog_%d{yyyy-MM-dd}.log</FileNamePattern>
             </rollingPolicy>
             <layout class="ch.qos.logback.classic.PatternLayout">
@@ -44,24 +37,18 @@
     </springProfile>
     <!-- 测试 -->
     <springProfile name="test">
-        <appender
-                name="LOGFILE"
-                class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <File>log/test/hanxiaocu.log</File>
-            <rollingPolicy
-                    class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
                 <FileNamePattern>log/test/hanxiaocu_%d{yyyy-MM-dd}.log</FileNamePattern>
             </rollingPolicy>
             <layout class="ch.qos.logback.classic.PatternLayout">
                 <pattern>%date [%thread] %-5level %logger{80} [%file%line] - %msg%n</pattern>
             </layout>
         </appender>
-        <appender
-                name="openlog_appender"
-                class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <appender name="openlog_appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <File>log/openlog.log</File>
-            <rollingPolicy
-                    class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
                 <FileNamePattern>log/openlog_%d{yyyy-MM-dd}.log</FileNamePattern>
             </rollingPolicy>
             <layout class="ch.qos.logback.classic.PatternLayout">
@@ -79,12 +66,9 @@
 
     <!-- 正式 -->
     <springProfile name="online">
-        <appender
-                name="LOGFILE"
-                class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <File>log/online/eyeland.log</File>
-            <rollingPolicy
-                    class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
                 <FileNamePattern>log/online/eyeland_%d{yyyy-MM-dd}.log</FileNamePattern>
             </rollingPolicy>
             <layout class="ch.qos.logback.classic.PatternLayout">
