@@ -2,22 +2,29 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>springBoot-Monitor</artifactId>
+    <modules>
+        <module>spring-boot-admin-server</module>
+        <module>spring-boot-monitor-basic</module>
+        <module>spring-boot-admin-client</module>
+    </modules>
+
+    <groupId>com.hanxiaocu</groupId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-parent</artifactId>
-        <version>2.0.1.RELEASE</version>
+        <version>2.0.6.RELEASE</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>springBoot-Monitor</artifactId>
-    <groupId>com.hanxiaocu</groupId>
-    <packaging>war</packaging>
-
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
 
@@ -38,7 +45,29 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-            <version>2.0.6.RELEASE</version>
+        </dependency>
+
+        <!-- 开启安全认证 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN" monitorInterval="30" packages="com.hanxiaocu.log">
+    <!--定义appenders-->
+    <appenders>
+        <MyLog4j2 name="BBS" printString="韩小醋(log4j2)">
+            <!--输出日志的格式-->
+            <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+        </MyLog4j2>
+    </appenders>
+    <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
+    <loggers>
+        <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
+        <logger name="org.springframework" level="INFO"></logger>
+        <logger name="org.mybatis" level="INFO"></logger>
+        <!-- 自定义包下设置为INFO,则可以看见输出的日志不包含debug输出了 -->
+        <logger name="com.hanxiaocu.log" level="INFO"/>
+        <root level="all">
+            <appender-ref ref="BBS"/>
+        </root>
+    </loggers>
+</configuration>

@@ -5,14 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Description:
- * User: hanchenghai
  * Date: 2018/10/30 1:12 PM
+ * @author hanchenghai
  */
 @SpringBootApplication
-public class Application {
-
+public class BasicApplication {
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(Application.class);
+        SpringApplication app = new SpringApplication(BasicApplication.class);
         app.setAddCommandLineProperties(false);
         app.run(args);
     }

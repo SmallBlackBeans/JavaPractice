@@ -14,6 +14,7 @@ import javax.servlet.Filter;
 @Configuration
 public class FilterConf {
 
+    //可以设置顺序
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean registration = new FilterRegistrationBean();

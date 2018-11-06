@@ -13,14 +13,14 @@ import org.springframework.context.annotation.Configuration;
  * Date: 2018/10/30 1:35 PM
  */
 @Configuration
-public class ActuatorConfig  {
+public class ActuatorConfig {
 
-@ConditionalOnMissingBean(HttpTraceRepository.class)
-    @Bean
-    public InMemoryHttpTraceRepository traceRepository() {
-    InMemoryHttpTraceRepository traceRepository = new InMemoryHttpTraceRepository();
-    //只缓存最近两条请求
-    traceRepository.setCapacity(2);
-    return traceRepository;
-}
+	@ConditionalOnMissingBean(HttpTraceRepository.class)
+	@Bean
+	public InMemoryHttpTraceRepository traceRepository() {
+		InMemoryHttpTraceRepository traceRepository = new InMemoryHttpTraceRepository();
+		//只缓存最近两条请求
+		traceRepository.setCapacity(2);
+		return traceRepository;
+	}
 }
