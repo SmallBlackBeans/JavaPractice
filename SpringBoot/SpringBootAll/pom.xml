@@ -25,6 +25,13 @@
         <module>SpringBoot-AsyncDev</module>
         <module>SpringBoot-Monitor</module>
         <module>SpringBoot-Dubbo</module>
+        <module>SpringBoot-JPA</module>
+        <module>SpringBoot-Mail</module>
+        <module>SpringBoot-Log</module>
+        <module>SpringBoot-AOP</module>
+        <module>SpringBoot-TimingTask</module>
+        <module>SpringBoot-WebApp</module>
+        <module>SpringBoot-WebSocket</module>
     </modules>
 
 
