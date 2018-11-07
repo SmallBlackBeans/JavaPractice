@@ -23,6 +23,8 @@
         <module>SpringBoot-RabbitMQ</module>
         <module>SpringBoot-Docker</module>
         <module>SpringBoot-AsyncDev</module>
+        <module>SpringBoot-Monitor</module>
+        <module>SpringBoot-Dubbo</module>
     </modules>
 
 
@@ -44,7 +46,9 @@
     mybatis 表示仅仅在单元测试的时候需要 ;
     provided 在编译和测试时有效,表示在编译阶段需要此类库，但打包阶段不需要，这是因为项目的目标环境己经提供了
     runtime 在测试和运行时有效,表示在编译和打包的 时候都不需要，但在运行的时候需要，比如某个指定的数据库驱动，编译和打包都不需要 ，但测试应用要连到数据库 时就需要此数据库驱动 。
+    import：从其它的pom文件中导入依赖设置
     -->
+    <!-- 使用dependencyManagement 元素为多项目依赖提供了一种管理依赖版本号的方式-->
     <dependencyManagement>
         <dependencies>
             <dependency>

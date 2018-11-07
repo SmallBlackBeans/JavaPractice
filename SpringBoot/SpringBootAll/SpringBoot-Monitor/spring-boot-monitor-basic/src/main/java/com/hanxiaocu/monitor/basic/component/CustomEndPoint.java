@@ -1,4 +1,4 @@
-package com.hanxiaocu.monitor.component;
+package com.hanxiaocu.monitor.basic.component;
 
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;

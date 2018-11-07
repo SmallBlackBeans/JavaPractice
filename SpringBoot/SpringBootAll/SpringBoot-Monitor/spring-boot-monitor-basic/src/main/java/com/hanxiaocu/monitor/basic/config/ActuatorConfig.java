@@ -1,4 +1,4 @@
-package com.hanxiaocu.monitor.config;
+package com.hanxiaocu.monitor.basic.config;
 
 import org.springframework.boot.actuate.trace.http.HttpTraceRepository;
 import org.springframework.boot.actuate.trace.http.InMemoryHttpTraceRepository;

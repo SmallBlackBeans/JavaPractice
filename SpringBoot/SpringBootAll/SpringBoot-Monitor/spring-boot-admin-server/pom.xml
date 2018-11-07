@@ -20,6 +20,7 @@
 <!-- $Id: pom.xml 642118 2008-03-28 08:04:16Z reinhard $ -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
     <parent>
         <artifactId>springBoot-Monitor</artifactId>
         <groupId>com.hanxiaocu</groupId>
@@ -30,7 +31,6 @@
     <packaging>war</packaging>
     <name>spring-boot-admin-server</name>
     <artifactId>spring-boot-admin-server</artifactId>
-
 
 
     <properties>
@@ -44,11 +44,20 @@
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <!--邮件通知-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
+
     </dependencies>
+
     <!--加入了spring-boot-admin-dependencies进行版本管理-->
     <dependencyManagement>
         <dependencies>
