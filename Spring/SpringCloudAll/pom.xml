@@ -35,7 +35,8 @@
     <name>SpringCloudAll</name>
     <description>SpringCloud 学习</description>
     <modules>
-        <module>SpringCloud-Eureka</module>
+        <module>spring-cloud-eureka</module>
+        <module>spring-cloud-hystrix</module>
     </modules>
     <groupId>com.hanxiaocu</groupId>
     <artifactId>SpringCloudAll</artifactId>
@@ -83,6 +84,14 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <!--<optional>true</optional>-->
+        </dependency>
+    </dependencies>
 
 
     <!-- 定义编译库版本 -->
