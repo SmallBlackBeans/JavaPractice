@@ -18,5 +18,4 @@ public class CloudConfigApplication {
 		SpringApplication.run(CloudConfigApplication.class,args);
 		log.info("spring-cloud-config-server启动... ");
 	}
-
 }

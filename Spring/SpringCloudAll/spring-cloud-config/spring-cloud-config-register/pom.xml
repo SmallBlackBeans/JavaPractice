@@ -3,19 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>SpringCloudAll</artifactId>
+        <artifactId>spring-cloud-confg</artifactId>
         <groupId>com.hanxiaocu</groupId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>spring-cloud-confg</artifactId>
     <packaging>pom</packaging>
+    <description>注册中心+配置中心</description>
     <modules>
-        <module>spring-cloud-config-server</module>
-        <module>spring-cloud-confg-client</module>
-        <module>spring-cloud-config-register</module>
+        <module>spring-cloud-config-register-server</module>
+        <module>spring-cloud-config-register-client</module>
+        <module>spring-cloud-config-eureka</module>
     </modules>
+
+    <artifactId>spring-cloud-config-register</artifactId>
 
 
 </project>
