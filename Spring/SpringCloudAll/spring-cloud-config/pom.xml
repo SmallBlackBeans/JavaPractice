@@ -12,7 +12,7 @@
     <artifactId>spring-cloud-confg</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>spring-cloud-confg-server</module>
+        <module>spring-cloud-config-server</module>
     </modules>
 
 
