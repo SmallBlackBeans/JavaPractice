@@ -32,6 +32,7 @@
         <module>SpringBoot-TimingTask</module>
         <module>SpringBoot-WebApp</module>
         <module>SpringBoot-WebSocket</module>
+        <module>SpringBoot-WebService</module>
     </modules>
 
 
