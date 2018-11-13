@@ -2,20 +2,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <artifactId>SpringBoot-WebService</artifactId>
         <groupId>com.hanxiaocu</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-boot-webservice-server</artifactId>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <!-- spirng ws 依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
+            <version>2.1.0.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- 生成wsdl文件 -->
         <dependency>
@@ -23,4 +35,40 @@
             <artifactId>wsdl4j</artifactId>
         </dependency>
     </dependencies>
+
+
+    <build>
+        <plugins>
+            <!--自动生成实体对象-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>xjc</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sources>
+                        <source>${project.basedir}/src/main/resources</source>
+                    </sources>
+                    <xjcSourceExcludeFilters>
+                        <filter implementation="org.codehaus.mojo.jaxb2.shared.filters.pattern.PatternFileFilter">
+                            <patterns>
+                                <pattern>\.properties</pattern>
+                            </patterns>
+                        </filter>
+                    </xjcSourceExcludeFilters>
+                    <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
+                    <clearOutputDir>false</clearOutputDir>
+                    <!-- 生成包名路径 -->
+                    <packageName>com.hanxiaocu.ws.webservice.jaxb</packageName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

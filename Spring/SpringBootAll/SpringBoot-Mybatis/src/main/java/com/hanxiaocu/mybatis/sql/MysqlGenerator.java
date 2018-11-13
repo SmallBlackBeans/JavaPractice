@@ -13,15 +13,27 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import java.util.*;
 
 /**
- * Description:
+ * Description: 代码生成器类
  * User: hanchenghai
  * Date: 2018/10/31 9:42 AM
  */
 public class MysqlGenerator {
 
+    /**
+     * 包名
+     */
     private static final String PACKAGE_NAME = "com.hanxiaocu.mybatis";
+    /**
+     * 模块名称
+     */
     private static final String MODULE_NAME  = "biz";
+    /**
+     * 输出文件的路径
+     */
     private static final String OUT_PATH     = "./develop/code";
+    /**
+     * 这些代码的生成者
+     */
     private static final String AUTHOR       = "hanxiaocu";
 
     private static final String DRIVER    = "com.mysql.cj.jdbc.Driver";

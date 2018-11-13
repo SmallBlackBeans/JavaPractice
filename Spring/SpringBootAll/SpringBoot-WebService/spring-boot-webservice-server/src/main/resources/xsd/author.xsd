@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.lqdev.cn/webservice"
-           targetNamespace="http://www.lqdev.cn/webservice" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.hanxiaocu.cn/webservice"
+           targetNamespace="http://www.hanxiaocu.cn/webservice" elementFormDefault="qualified">
 
     <!-- 定义请求实体 -->
     <xs:element name="authorRequest">

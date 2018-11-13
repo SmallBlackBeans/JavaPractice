@@ -11,5 +11,58 @@
 
     <artifactId>spring-boot-webservice-client</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+        </dependency>
+
+
+        <!--cxf 调用-->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+            <version>3.2.7</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.14.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <schemaLanguage>WSDL</schemaLanguage>
+                    <generatePackage>com.hanxiaocu.webservice</generatePackage>
+                    <generateDirectory>${basedir}/src/main/java</generateDirectory>
+                    <schemas>
+                        <schema>
+                            <fileset>
+                                <!-- Defaults to schemaDirectory. -->
+                                <directory>${basedir}/src/main/resources/schemas</directory>
+                                <!-- Defaults to schemaIncludes. -->
+                                <includes>
+                                    <include>*.wsdl</include>
+                                </includes>
+                            </fileset>
+                        </schema>
+                    </schemas>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
