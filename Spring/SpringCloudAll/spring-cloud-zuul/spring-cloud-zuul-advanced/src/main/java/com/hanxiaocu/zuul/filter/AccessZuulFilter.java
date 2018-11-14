@@ -48,6 +48,7 @@ public class AccessZuulFilter extends ZuulFilter {
 		ctx.getResponse().setCharacterEncoding("UTF-8");
 
 		log.info("请求方式：{}, 地址：{}", request.getMethod(), request.getRequestURI());
+
 		String token = request.getParameter("token");
 		if (StringUtils.isBlank(token)) {
 			ctx.setSendZuulResponse(false);

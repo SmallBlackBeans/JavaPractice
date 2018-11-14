@@ -1,0 +1,7 @@
+bbs:
+  security:
+    token:
+      expiration-time:10 # 十分钟 1440
+      refresh-exp-time:30 # 2880
+      issuer:http://hanxiaocu.com
+      signing-key:bbs

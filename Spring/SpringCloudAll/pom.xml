@@ -43,6 +43,7 @@
         <module>spring-cloud-hystrix</module>
         <module>spring-cloud-config</module>
         <module>spring-cloud-zuul</module>
+        <module>spring-cloud-security-jwt</module>
     </modules>
 
     <!--定义全局变量-->
