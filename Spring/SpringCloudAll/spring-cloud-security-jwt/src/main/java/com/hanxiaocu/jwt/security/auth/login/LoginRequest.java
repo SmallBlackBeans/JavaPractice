@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * 客户端登录认证模型
  *
- * @author Levin
+ * @author bbs
  * @since 2017-05-25
  */
 public class LoginRequest {

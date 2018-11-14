@@ -24,7 +24,7 @@ import java.io.IOException;
 /**
  * 登录处理过滤器
  *
- * @author Levin
+ * @author bbs
  * @since 2017-05-25
  */
 public class LoginProcessingFilter extends AbstractAuthenticationProcessingFilter {

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 /**
  * Token验证过滤器
  *
- * @author Levin
+ * @author bbs
  * @since 2017-05-25
  */
 @Component

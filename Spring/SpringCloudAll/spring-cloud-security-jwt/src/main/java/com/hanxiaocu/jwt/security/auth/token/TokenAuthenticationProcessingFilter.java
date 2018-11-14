@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * 执行Token的验证
  * 
- * @author Levin
+ * @author bbs
  *
  * 2018-02-02
  */

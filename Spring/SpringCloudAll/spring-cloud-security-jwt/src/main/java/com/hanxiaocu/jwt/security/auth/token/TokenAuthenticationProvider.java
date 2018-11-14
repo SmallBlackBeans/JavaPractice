@@ -24,7 +24,7 @@ import static java.util.stream.Collectors.toList;
 /**
  * 使用 {@link AuthenticationProvider} 的接口提供实现 {@link Token} 身份验证的实例
  * 
- * @author Levin
+ * @author bbs
  *
  * @since 2017-05-25
  */

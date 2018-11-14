@@ -22,7 +22,7 @@ import java.io.IOException;
 /**
  * 认证失败处理程序
  *
- * @author Levin
+ * @author bbs
  * @since 2017-05-25
  */
 @Component

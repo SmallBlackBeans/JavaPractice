@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * 跳过请求匹配路径
  *
- * @author Levin
+ * @author bbs
  * @since 2017-05-25
  */
 public class SkipPathRequestMatcher implements RequestMatcher {
