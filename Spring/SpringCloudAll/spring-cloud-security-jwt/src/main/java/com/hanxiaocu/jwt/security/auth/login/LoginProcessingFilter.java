@@ -1,7 +1,8 @@
 package com.hanxiaocu.jwt.security.auth.login;
 
-import com.battcn.security.exceptions.AuthMethodNotSupportedException;
-import org.apache.commons.lang.StringUtils;
+
+import com.hanxiaocu.jwt.security.exceptions.AuthMethodNotSupportedException;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;

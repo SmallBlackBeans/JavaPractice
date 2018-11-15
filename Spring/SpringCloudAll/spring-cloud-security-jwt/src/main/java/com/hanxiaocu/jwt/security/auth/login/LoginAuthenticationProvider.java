@@ -1,12 +1,13 @@
 package com.hanxiaocu.jwt.security.auth.login;
 
 import com.alibaba.fastjson.JSON;
-import com.battcn.pojo.UserInfo;
-import com.battcn.pojo.UserRole;
-import com.battcn.security.model.UserContext;
-import com.battcn.service.UserInfoService;
-import com.battcn.service.UserRoleService;
-import org.apache.commons.lang.StringUtils;
+
+import com.hanxiaocu.jwt.pojo.UserInfo;
+import com.hanxiaocu.jwt.pojo.UserRole;
+import com.hanxiaocu.jwt.security.model.UserContext;
+import com.hanxiaocu.jwt.service.UserInfoService;
+import com.hanxiaocu.jwt.service.UserRoleService;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,7 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
         String password = (String) authentication.getCredentials();
         UserInfo user = userService.findByName(username);
         if(user == null) throw new UsernameNotFoundException("User not found: " + username);
-        if (!StringUtils.equals(password, user.getPassword())) {
+        if (!StringUtils.equals(password, user.getPassWord())) {
             throw new BadCredentialsException("Authentication Failed. Username or Password not valid.");
         }
         List<UserRole> roles = roleService.getRoleByUser(user);

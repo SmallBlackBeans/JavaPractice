@@ -75,6 +75,7 @@ public class NIOServer {
                 break;
             }
             buffer.flip();//切换读写状态，limit 从末端指向了position 位置，position 指向了数组首部，所以此时的可读数据长度就是limit长度
+            //buffer.flip(); 保存了刚才写入的最后位置limit = position ，即越界位置，最多读到limit位置
             int limit = buffer.limit();
             char[] dst = new char[limit];
             for (int i = 0; i < limit; i++) {

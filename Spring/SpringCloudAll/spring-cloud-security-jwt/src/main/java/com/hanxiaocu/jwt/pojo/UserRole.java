@@ -10,12 +10,23 @@ import lombok.Setter;
  * @author: hanchenghai
  * @date: 2018/11/14 4:56 PM
  */
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Getter
 @Setter
 public class UserRole {
 
 	private String roleName;
+
+	public UserRole() {
+	}
+
+	public UserRole(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public String authority(){
+		return this.getRoleName();
+	}
+
 
 }

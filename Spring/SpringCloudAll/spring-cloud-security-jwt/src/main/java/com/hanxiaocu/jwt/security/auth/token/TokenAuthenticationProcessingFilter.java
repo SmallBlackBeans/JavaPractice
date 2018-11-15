@@ -1,11 +1,9 @@
 package com.hanxiaocu.jwt.security.auth.token;
 
-import com.battcn.security.auth.AuthenticationToken;
-import com.battcn.security.auth.token.extractor.TokenExtractor;
-import com.battcn.security.config.WebSecurityConfig;
-import com.battcn.security.model.token.RawAccessToken;
+
 import com.hanxiaocu.jwt.security.auth.AuthenticationToken;
 import com.hanxiaocu.jwt.security.auth.token.extractor.TokenExtractor;
+import com.hanxiaocu.jwt.security.config.WebSecurityConfig;
 import com.hanxiaocu.jwt.security.model.token.RawAccessToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
