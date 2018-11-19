@@ -5,4 +5,8 @@
     <insert id="insert" parameterType="com.hanxiaocu.mybatis.entity.User">
       INSERT INTO `t_user`(`username`,`password`) VALUES(#{username},#{password})
    </insert>
+    
+    <select id="countByUsername" resultType="java.lang.Integer">
+        SELECT count(1) FROM t_user where username = #{username}
+    </select>
 </mapper>
