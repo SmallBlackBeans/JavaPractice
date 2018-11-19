@@ -17,7 +17,7 @@ import java.util.Date;
  * @author: hanchenghai
  * @date: 2018/11/07 6:02 PM
  */
-@Entity
+@Entity(name = "user")
 @Data
 @Builder
 @NoArgsConstructor
@@ -58,4 +58,7 @@ public class User implements Serializable {
 	 */
 	@LastModifiedDate
 	private Date gmtModified;
+
+	@Transient
+	private String email;
 }

@@ -117,6 +117,7 @@
 
     <build>
         <resources>
+            <!--帮组我们识别java 包下的xml资源文件-->
             <resource>
                 <directory>src/main/resources</directory>
             </resource>

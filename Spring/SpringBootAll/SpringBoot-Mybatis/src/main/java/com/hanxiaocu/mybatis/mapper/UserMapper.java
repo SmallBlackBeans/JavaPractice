@@ -8,7 +8,10 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * Description:
+ * t_user 操作：演示两种方式
+ * <p>第一种是基于mybatis3.x版本后提供的注解方式<p/>
+ * <p>第二种是早期写法，将SQL写在 XML 中<p/>
+ *
  * User: hanchenghai
  * Date: 2018/11/01 11:49 AM
  */

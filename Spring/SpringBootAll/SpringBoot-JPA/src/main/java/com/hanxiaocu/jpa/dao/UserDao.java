@@ -16,6 +16,7 @@ import java.util.Optional;
  */
 public interface UserDao extends PagingAndSortingRepository<User, Long> {
 
+    @Override
     Optional<User> findById(Long id);
 
 
