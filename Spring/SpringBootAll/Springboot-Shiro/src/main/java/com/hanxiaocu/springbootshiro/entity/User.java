@@ -57,4 +57,12 @@ public class User {
 	public void setLocked(boolean locked) {
 		this.locked = locked;
 	}
+
+	public User(Long id, String username, String password, String roleName, boolean locked) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.roleName = roleName;
+		this.locked = locked;
+	}
 }
