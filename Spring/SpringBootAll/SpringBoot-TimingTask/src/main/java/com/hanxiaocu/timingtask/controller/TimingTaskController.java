@@ -32,43 +32,35 @@ public class TimingTaskController {
 			public void run() {
 				log.info("Timer 定时任务启动: " + new Date());
 			}
-		},1000,1000);//延迟1秒，每秒执行一次
+		}, 1000, 1000);//延迟1秒，每秒执行一次
 		return "timer";
 	}
-
 
 	@GetMapping("/executor")
 	public String ScheduledExecutorService() {
 		// ScheduledExecutorService service = new ScheduledThreadPoolExecutor(10);
 		ScheduledExecutorService service = Executors.newScheduledThreadPool(10);
-		service.scheduleAtFixedRate(new Runnable() {
-			@Override
-			public void run() {
-				log.info("ScheduledExecutorService 定时任务执行：" + new Date());
-			}
-		},1,1, TimeUnit.SECONDS);
+		service.scheduleAtFixedRate(() -> log.info("ScheduledExecutorService 定时任务执行：" + new Date()), 1, 1, TimeUnit.SECONDS);
 		log.info("ScheduledExecutorService 定时任务启动：" + new Date());
 		return "ScheduledExecutorService";
 	}
 
-
-
-
 	@Autowired
-	TaskScheduler taskScheduler;
+	TaskScheduler taskScheduler() {
+		ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
+		//默认1
+		taskScheduler.setPoolSize(10);
+		return taskScheduler;
+	}
+
+	;
 
 	//动态触发，添加定时任务
 	@GetMapping("/poolTask")
 	public String threadPoolTaskScheduler() {
-		taskScheduler.schedule(new Runnable() {
-			@Override
-			public void run() {
-				log.info("ThreadPoolTaskScheduler定时任务：" + new Date());
-			}
-		},new CronTrigger("0/3 * * * * ?"));//每三秒执行一次
+		taskScheduler().schedule(() -> log.info("ThreadPoolTaskScheduler定时任务：" + new Date()), new CronTrigger("0/3 * * * * ?"));//每三秒执行一次
 
 		return "ThreadPoolTaskScheduler!";
 	}
-
 
 }

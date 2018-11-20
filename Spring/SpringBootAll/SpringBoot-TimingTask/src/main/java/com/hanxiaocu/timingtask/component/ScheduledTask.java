@@ -25,4 +25,13 @@ public class ScheduledTask {
 	public void getCurrentDate() {
 		log.info("Scheduled定时任务执行：" + new Date());
 	}
+
+
+
+	@Async
+	@Scheduled(cron = "0/5 * * * * * *")
+	public void scheduled() throws InterruptedException {
+		Thread.sleep(3000);
+		log.info("每5秒执行一次");
+	}
 }

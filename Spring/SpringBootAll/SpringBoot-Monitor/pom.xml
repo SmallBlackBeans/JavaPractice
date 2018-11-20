@@ -34,7 +34,6 @@
     </modules>
 
 
-
     <dependencies>
         <!--web 容器-->
         <dependency>
@@ -80,8 +79,8 @@
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>com.google.code.findbugs</groupId>-->
-            <!--<artifactId>jsr305</artifactId>-->
+        <!--<groupId>com.google.code.findbugs</groupId>-->
+        <!--<artifactId>jsr305</artifactId>-->
         <!--</dependency>-->
 
         <dependency>
@@ -125,6 +124,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
