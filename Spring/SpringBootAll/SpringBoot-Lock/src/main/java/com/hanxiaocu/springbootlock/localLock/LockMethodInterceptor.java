@@ -1,4 +1,4 @@
-package com.hanxiaocu.webapp.localLock;
+package com.hanxiaocu.springbootlock.localLock;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
@@ -26,7 +26,7 @@ public class LockMethodInterceptor {
 			.expireAfterWrite(5, TimeUnit.SECONDS)
 			.build();
 
-	@Around("execution(public * *(..)) && @annotation(com.hanxiaocu.webapp.localLock.LocalLock)")
+	@Around("execution(public * *(..)) && @annotation(com.hanxiaocu.springbootlock.localLock.LocalLock)")
 	public Object interceptor(ProceedingJoinPoint pjp) {
 		MethodSignature signature = (MethodSignature) pjp.getSignature();
 		Method method = signature.getMethod();

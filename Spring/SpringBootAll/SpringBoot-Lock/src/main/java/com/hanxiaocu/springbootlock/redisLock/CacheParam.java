@@ -1,4 +1,4 @@
-package com.hanxiaocu.webapp.redisLock;
+package com.hanxiaocu.springbootlock.redisLock;
 
 import java.lang.annotation.*;
 

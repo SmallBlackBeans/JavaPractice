@@ -1,4 +1,4 @@
-package com.hanxiaocu.webapp.localLock;
+package com.hanxiaocu.springbootlock.localLock;
 
 import java.lang.annotation.*;
 

@@ -1,11 +1,10 @@
-package com.hanxiaocu.webapp.redisLock;
+package com.hanxiaocu.springbootlock.redisLock;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
@@ -42,7 +41,7 @@ public class LockMethodInterceptor {
 	// Around advice
 	//连接点是每一个具有CacheLock 注解的方法
 	//切入点 是这些连接点的集合
-	@Around("execution(public * *(..)) && @annotation(com.hanxiaocu.webapp.redisLock.CacheLock)")
+	@Around("execution(public * *(..)) && @annotation(com.hanxiaocu.springbootlock.redisLock.CacheLock)")
 	public Object interceptor(ProceedingJoinPoint pjp) {
 		//这个方法里是通知执行代码
 		MethodSignature signature = (MethodSignature) pjp.getSignature();
