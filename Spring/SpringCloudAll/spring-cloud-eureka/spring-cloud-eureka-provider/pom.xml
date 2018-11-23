@@ -24,6 +24,8 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+
+        <!--将公用的接口和对象封装成服务，供服务方和消费者使用-->
         <!--导入接口依赖-->
         <dependency>
             <groupId>com.hanxiaocu</groupId>
