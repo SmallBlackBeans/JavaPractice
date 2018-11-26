@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @date: 2018/11/23 3:50 PM
  */
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class NotFoundException {
+public class NotFoundException extends RuntimeException {
 
 	public NotFoundException() {
-		super("查找的资源不存在或者已被删除。");
+		super("查找的资源不存在或者已被删除");
 	}
 	public NotFoundException(String message) {
 		super(message);

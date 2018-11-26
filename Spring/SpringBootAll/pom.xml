@@ -267,6 +267,8 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <!--将-parameters参数添加到编译器中 参数名字保留在字节码中 还有idea java complier 中的配置-->
+                    <compilerArgument>-parameters</compilerArgument>
                 </configuration>
             </plugin>
         </plugins>
