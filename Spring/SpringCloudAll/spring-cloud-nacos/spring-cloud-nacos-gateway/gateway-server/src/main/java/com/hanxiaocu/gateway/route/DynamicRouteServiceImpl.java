@@ -18,6 +18,7 @@ import reactor.core.publisher.Mono;
 
 import java.net.URI;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -117,7 +118,7 @@ public class DynamicRouteServiceImpl implements ApplicationEventPublisherAware {
 		predicate.setName("Path");
 		predicateParams.put("pattern","/jd");
 		predicate.setArgs(predicateParams);
-		definition.setPredicates(Arrays.asList(predicate));
+		definition.setPredicates(Collections.singletonList(predicate));
 		String uri = "http://www.jd.com";
 		definition.setUri(uri);
 		System.out.println("definition:" + JSON.toJSONString(definition));

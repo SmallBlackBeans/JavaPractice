@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Bean;
  * @author: hanchenghai
  * @date: 2018/11/12 2:46 PM
  */
+// http://xujin.org/sc/sc-zuul-s3/
 @SpringBootApplication
 @Slf4j
 public class ZuulAdvanceApplication {
