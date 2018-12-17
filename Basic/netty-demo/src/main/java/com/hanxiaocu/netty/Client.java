@@ -22,6 +22,15 @@ public class Client {
 		}
 	}
 
+
+	public static String test() {
+		String str = "hello";
+		try {
+			return str;
+		}finally {
+			str = "imooc";
+		}
+	}
 }
 
 
