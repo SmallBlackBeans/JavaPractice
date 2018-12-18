@@ -18,12 +18,16 @@
         <module>sc-provider</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>2.0.2.RELEASE</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 
 </project>
