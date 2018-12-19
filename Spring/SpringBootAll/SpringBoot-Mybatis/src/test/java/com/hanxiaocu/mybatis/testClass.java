@@ -1,10 +1,9 @@
 package com.hanxiaocu.mybatis;
 
-import com.github.pagehelper.ISelect;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hanxiaocu.mybatis.db1.dao.UserMapper;
 import com.hanxiaocu.mybatis.entity.User;
-import com.hanxiaocu.mybatis.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

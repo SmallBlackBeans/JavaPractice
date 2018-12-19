@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Date: 2018/10/31 9:13 AM
  */
 @SpringBootApplication
+// @MapperScan("com.hanxiaocu.mybatis.dao")
 public class Application {
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(Application.class);
