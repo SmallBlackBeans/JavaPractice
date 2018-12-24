@@ -1,10 +1,10 @@
-package com.hanxiaocu.jpa;
+package com.hanxiaocu;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 /**
  * @desc:
@@ -14,6 +14,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @SpringBootApplication
 //公共字段自动填充功能
 @EnableJpaAuditing
+
+@EnableJpaRepositories(basePackages = "com.hanxiaocu.repositories.jpa")
+@EnableMongoRepositories(basePackages = "com.hanxiaocu.repositories.mongo")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);

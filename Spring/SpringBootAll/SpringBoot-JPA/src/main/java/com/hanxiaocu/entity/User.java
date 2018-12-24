@@ -1,9 +1,10 @@
-package com.hanxiaocu.jpa.entity;
+package com.hanxiaocu.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.usertype.UserType;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -61,4 +62,10 @@ public class User implements Serializable {
 
 	@Transient
 	private String email;
+
+
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = true)
+	private UserType type;
+
 }

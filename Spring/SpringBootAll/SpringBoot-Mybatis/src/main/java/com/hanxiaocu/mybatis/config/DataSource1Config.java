@@ -25,7 +25,7 @@ public class DataSource1Config {
 
 	@Bean(name = "db1DataSource")
 	@ConfigurationProperties(prefix = "spring.datasource.hikari.db1")
-	@Primary//表明这是默认的数据库
+	@Primary//表明这是默认的数据库 主库
 	public DataSource defaultDataSource(){
 		return DataSourceBuilder.create().build();
 	}

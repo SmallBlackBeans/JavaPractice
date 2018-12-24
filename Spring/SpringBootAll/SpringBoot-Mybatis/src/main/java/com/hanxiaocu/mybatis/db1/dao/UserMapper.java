@@ -7,9 +7,8 @@ package com.hanxiaocu.mybatis.db1.dao;
  */
 
 import com.hanxiaocu.mybatis.entity.User;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import com.hanxiaocu.mybatis.enums.UserSexEnum;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.BaseMapper;
 
@@ -52,4 +51,16 @@ public interface UserMapper extends BaseMapper<User> {
 	 * @return 统计结果
 	 */
 	int countByUsername(String username);
+
+
+
+	@Select("Select * from users")
+	@Results({
+			@Result(property = "userSex", column = "user_sex", javaType = UserSexEnum.class),
+			@Result(property = "nickName",column = "nike_name")
+	})
+	List<User> getAll();
+
+
+	void delete(Long id);
 }

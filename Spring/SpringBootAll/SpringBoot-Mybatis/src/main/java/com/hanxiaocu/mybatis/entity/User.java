@@ -1,6 +1,8 @@
 package com.hanxiaocu.mybatis.entity;
 
-import lombok.*;
+import com.hanxiaocu.mybatis.enums.UserSexEnum;
+import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +28,8 @@ public class User implements Serializable {
 	private String username;
 	private String password;
 
+	private UserSexEnum userSex;
+
 	public User() {}
 
 	public User(Long id, String username, String password) {
@@ -38,4 +42,6 @@ public class User implements Serializable {
 		this.username = username;
 		this.password = password;
 	}
+
+
 }

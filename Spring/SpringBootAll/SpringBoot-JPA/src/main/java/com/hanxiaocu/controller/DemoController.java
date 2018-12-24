@@ -1,8 +1,7 @@
-package com.hanxiaocu.jpa.controller;
+package com.hanxiaocu.controller;
 
-import com.hanxiaocu.jpa.dao.UserDao;
-import com.hanxiaocu.jpa.entity.User;
-import com.sun.tools.corba.se.idl.StringGen;
+import com.hanxiaocu.repositories.jpa.dao.UserDao;
+import com.hanxiaocu.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

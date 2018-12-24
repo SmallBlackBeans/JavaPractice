@@ -1,6 +1,6 @@
-package com.hanxiaocu.jpa.dao;
+package com.hanxiaocu.repositories.jpa.dao;
 
-import com.hanxiaocu.jpa.entity.User;
+import com.hanxiaocu.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
