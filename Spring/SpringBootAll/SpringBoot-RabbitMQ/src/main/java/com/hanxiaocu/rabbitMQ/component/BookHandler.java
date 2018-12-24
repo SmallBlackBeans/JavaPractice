@@ -3,7 +3,6 @@ package com.hanxiaocu.rabbitMQ.component;
 import com.hanxiaocu.rabbitMQ.biz.Book;
 import com.hanxiaocu.rabbitMQ.config.RabbitConfig;
 import com.rabbitmq.client.Channel;
-import com.sun.xml.internal.bind.v2.TODO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
