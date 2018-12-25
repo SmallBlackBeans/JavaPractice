@@ -1,6 +1,6 @@
 package com.hanxiaocu.mongodb.dao;
 
-import com.hanxiaocu.mongodb.Entity.NotifyMsg;
+import com.hanxiaocu.mongodb.entity.NotifyMsg;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;

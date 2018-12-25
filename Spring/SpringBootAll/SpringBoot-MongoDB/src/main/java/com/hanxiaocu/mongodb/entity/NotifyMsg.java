@@ -1,4 +1,4 @@
-package com.hanxiaocu.mongodb.Entity;
+package com.hanxiaocu.mongodb.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

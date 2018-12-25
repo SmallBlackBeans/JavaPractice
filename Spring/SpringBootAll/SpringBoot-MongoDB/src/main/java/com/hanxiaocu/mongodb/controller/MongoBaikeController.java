@@ -1,6 +1,6 @@
 package com.hanxiaocu.mongodb.controller;
 
-import com.hanxiaocu.mongodb.Entity.Baike;
+import com.hanxiaocu.mongodb.entity.Baike;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;

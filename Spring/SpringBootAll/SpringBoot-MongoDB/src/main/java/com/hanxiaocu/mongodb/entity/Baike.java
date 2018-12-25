@@ -1,4 +1,4 @@
-package com.hanxiaocu.mongodb.Entity;
+package com.hanxiaocu.mongodb.entity;
 
 import java.util.ArrayList;
 import java.util.Date;

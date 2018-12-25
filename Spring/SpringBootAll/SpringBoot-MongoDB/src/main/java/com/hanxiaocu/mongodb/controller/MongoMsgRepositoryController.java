@@ -1,6 +1,6 @@
 package com.hanxiaocu.mongodb.controller;
 
-import com.hanxiaocu.mongodb.Entity.NotifyMsg;
+import com.hanxiaocu.mongodb.entity.NotifyMsg;
 import com.hanxiaocu.mongodb.dao.NotifyMsgDao;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
