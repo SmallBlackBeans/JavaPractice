@@ -18,9 +18,9 @@ public class CustomEndPoint {
 	@ReadOperation
 	public Map<String, Object> custom() {
 		Map<String, Object> result = new HashMap<>();
-		result.put("author", "oKong");
-		result.put("chapter", "chapter27");
-		result.put("mp", "lqdevOps");
+		result.put("author", "BBS");
+		result.put("age", "26");
+		result.put("email", "374802597@qq.com");
 		return result;
 	}
 }

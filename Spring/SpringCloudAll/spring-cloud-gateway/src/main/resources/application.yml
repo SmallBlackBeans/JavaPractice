@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: spring-cloud-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: bbs_route
+           uri:http://www.baidu.com:80/
+           predicates:
+           - Path=/baidu
+
+        - id: after_route   # after 断言 在指定时间之后的请求才匹配
+            uri: http://github.com
+            predicates:
+            - After=2018-12-18T100:00:00.000+08:00[Asia/Shanghai]
+
+        - id: before_route
+            uri: http://github.com
+            predicates:
+            - Before=2088-08-08T00:00:00.000+08:00[Asia/Shanghai]
+logging:
+  level:
+    org.springframework.cloud.gateway: trace
+    org.springframework.http.server.reactive: debug
+    org.springframework.web.reactive: debug
+    reactor.ipc.netty: debug
+
+management.endpoints.web.exposure.include="*" #开启监控端点
+

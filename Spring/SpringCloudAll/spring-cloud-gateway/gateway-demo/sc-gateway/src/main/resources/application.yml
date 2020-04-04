@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: sc-gateway-server
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  # 是否与服务发现组件进行结合
+      routes:
+
+        - id: service_v1
+          uri: http://localhost:8081/v1
+          predicates:
+            - Path=/test
+            - Weight=service1, 95 #路由权重： /test 的 百分之95请求 转发到service1_v1
+
+        - id: service_v2
+            uri: http://localhost:8081/v2
+            predicates:
+            - Path=/test  # http://localhost:9000/test
+            - Weight=service1, 5 #  /test 的 百分之5请求 转发到service1_v2
+server:
+  port: 9000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    org.springframework.cloud.gateway: trace
+    org.springframework.http.server.reactive: debug
+    org.springframework.web.reactive: debug
+    reactor.ipc.netty: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

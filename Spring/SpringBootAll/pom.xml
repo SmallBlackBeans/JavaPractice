@@ -32,6 +32,7 @@
         <module>SpringBoot-TimingTask</module>
         <module>SpringBoot-WebApp</module>
         <module>SpringBoot-WebSocket</module>
+        <module>SpringBoot-WebService</module>
     </modules>
 
 
@@ -81,17 +82,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.springframework.boot</groupId>-->
+                    <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-jetty</artifactId>-->
+        <!--</dependency>-->
 
         <!--&lt;!&ndash;Spring Cloud&ndash;&gt;-->
         <!--<dependency>-->
@@ -215,7 +216,6 @@
     </dependencies>
 
 
-    <pluginRepositories></pluginRepositories>
 
 
     <build>
@@ -227,6 +227,7 @@
                     <artifactId>spring-boot-maven-plugin</artifactId>
                     <configuration>
                         <fork>true</fork>
+                        <executable>true</executable>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -267,6 +268,8 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <!--将-parameters参数添加到编译器中 参数名字保留在字节码中 还有idea java complier 中的配置-->
+                    <compilerArgument>-parameters</compilerArgument>
                 </configuration>
             </plugin>
         </plugins>

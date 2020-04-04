@@ -45,3 +45,26 @@ public class HashTable implements Cloneable {
     }
 }
 ```
+
+
+序列化深拷贝
+```html
+  protected Customer deepCopy() throws Exception {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream out = new ObjectOutputStream(bos);
+        out.writeObject(this);
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        ObjectInputStream in = new ObjectInputStream(bis);
+        return (Customer) in.readObject();
+    }
+```
+
+第三方
+```html
+SerializationUtils.clone(original)
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.4</version>
+</dependency>
+```

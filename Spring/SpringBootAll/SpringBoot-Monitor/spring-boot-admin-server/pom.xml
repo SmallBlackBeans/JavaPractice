@@ -56,6 +56,12 @@
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
 
+        <!-- 在管理界面中与 JMX-beans 进行交互所需要被依赖的 JAR -->
+        <dependency>
+            <groupId>org.jolokia</groupId>
+            <artifactId>jolokia-core</artifactId>
+        </dependency>
+
     </dependencies>
 
     <!--加入了spring-boot-admin-dependencies进行版本管理-->

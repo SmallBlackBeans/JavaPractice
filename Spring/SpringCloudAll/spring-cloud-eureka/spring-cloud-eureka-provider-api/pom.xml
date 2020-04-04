@@ -17,6 +17,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <scope>provided</scope>
+            <!--provided 只在编译和测试时运行-->
             <!--打包的时候，自己不提供，谁引用我，谁提供，减小二/三方库体积-->
         </dependency>
     </dependencies>

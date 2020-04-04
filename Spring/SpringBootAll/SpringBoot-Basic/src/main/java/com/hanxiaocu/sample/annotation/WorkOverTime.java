@@ -7,7 +7,7 @@ import javax.validation.Payload;
 import java.lang.annotation.*;
 
 /**
- * Description:
+ * Description: 自定义注解
  * User: hanchenghai
  * Date: 2018/10/24 10:33 AM
  */

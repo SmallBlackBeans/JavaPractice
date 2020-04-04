@@ -1,6 +1,6 @@
 package com.hanxiaocu.mongodb.service.impl;
 
-import com.hanxiaocu.mongodb.Entity.NotifyMsg;
+import com.hanxiaocu.mongodb.entity.NotifyMsg;
 import com.hanxiaocu.mongodb.service.NotifyMsgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;

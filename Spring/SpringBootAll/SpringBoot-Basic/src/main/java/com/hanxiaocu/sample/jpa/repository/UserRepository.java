@@ -2,12 +2,14 @@ package com.hanxiaocu.sample.jpa.repository;
 
 import com.hanxiaocu.sample.jpa.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * Description:
  * User: hanchenghai
  * Date: 2018/10/25 6:05 PM
  */
+@Repository
 public interface UserRepository  extends JpaRepository<User, Integer> {
 
     ////基于方法名查询

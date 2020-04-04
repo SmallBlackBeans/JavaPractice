@@ -24,7 +24,6 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
 
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -34,34 +33,37 @@
 
     <name>SpringCloudAll</name>
     <description>SpringCloud 学习</description>
-    <modules>
-        <module>spring-cloud-eureka</module>
-        <module>spring-cloud-hystrix</module>
-        <module>spring-cloud-confg</module>
-    </modules>
     <groupId>com.hanxiaocu</groupId>
     <artifactId>SpringCloudAll</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <modules>
+        <module>spring-cloud-eureka</module>
+        <module>spring-cloud-hystrix</module>
+        <module>spring-cloud-config</module>
+        <module>spring-cloud-zuul</module>
+        <module>spring-cloud-security-jwt</module>
+    </modules>
 
     <!--定义全局变量-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <!-- springCloud版本 -->
+        <!-- springCloud版本  和 对应的boot 版本要匹配-->
         <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
-        <spring.cloud.version>Finchley.SR2</spring.cloud.version>
+        <spring.cloud.version>Greenwich.M3</spring.cloud.version>
     </properties>
 
 
-    <!-- 统一模块的依赖版本 -->
+
+    <!-- 统一模块的依赖版本 子模块继承就可以了 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
+                <version>Finchley.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -69,31 +71,37 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring.boot.version}</version>
+                <version>2.1.0.RELEASE</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-devtools</artifactId>
-                <version>${spring.boot.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.18.2</version>
+                <version>2.1.0.RELEASE</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <!--子pom  都会引用这个版本，不用导入-->
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <!--<optional>true</optional>-->
+            <version>1.18.2</version>
         </dependency>
     </dependencies>
 
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <!-- 定义编译库版本 -->
     <build>
@@ -109,7 +117,7 @@
                             <maxIdleTime>30000</maxIdleTime>
                         </connector>
                     </connectors>
-                    <webAppSourceDirectory>${project.build.directory}/${pom.artifactId}-${pom.version}
+                    <webAppSourceDirectory>${project.build.directory}/${project.artifactId}-${project.version}
                     </webAppSourceDirectory>
                     <contextPath>/</contextPath>
                 </configuration>

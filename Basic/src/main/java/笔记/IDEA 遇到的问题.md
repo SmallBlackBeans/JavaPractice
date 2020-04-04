@@ -42,5 +42,8 @@ project settting out 设置
 
 module settting 选择继承 或 module settting 中 手动指定output路径
 
-**5. idea module git没有同步显示问题**
+**6. idea module git没有同步显示问题**
 最外层项目使用了maven,同步一下就好了。
+
+**7.Find in Path" dialog change in 2018.2 version**
+Select Boot JDK 切换jdk 版本就可以解决

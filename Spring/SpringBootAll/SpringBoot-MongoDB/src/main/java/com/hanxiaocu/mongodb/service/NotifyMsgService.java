@@ -1,6 +1,6 @@
 package com.hanxiaocu.mongodb.service;
 
-import com.hanxiaocu.mongodb.Entity.NotifyMsg;
+import com.hanxiaocu.mongodb.entity.NotifyMsg;
 
 import java.util.List;
 

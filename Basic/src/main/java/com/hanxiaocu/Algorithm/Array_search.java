@@ -1,8 +1,5 @@
 package com.hanxiaocu.Algorithm;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 /**
  * Description: 搜索算法
  * User: hanchenghai
